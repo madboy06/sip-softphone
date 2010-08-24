@@ -18,134 +18,137 @@ using Uccapi;
 
 namespace Messenger
 {
-	/// <summary>
-	/// Interaction logic for Programme.xaml
+    /// <summary>
+    /// Interaction logic for Programme.xaml
     /// </summary>
-	public partial class Programme : Application
+    public partial class Programme : Application
     {
-		private Mutex runningMutex;
-		private bool isApplicationNotRunning;
-		private string userId;
-		public Chat chatWindow;
-		private AvChatController avChatController;
-		private PresentitiesCollectionStorage presentitiesStorage;
-		
-		public Programme()
-		{
+        private Mutex runningMutex;
+        private bool isApplicationNotRunning;
+        private string userId;
+        public Chat chatWindow;
+        private AvChatController avChatController;
+        private PresentitiesCollectionStorage presentitiesStorage;
+
+        public Programme()
+        {
 #if DEBUG
 #else
 			InitializeCrashHandler();
 #endif
-			userId = GetCommandLineArgValue(@"-userid");
-			runningMutex = new Mutex(false, "Local\\" + "{9D13D6B0-F44E-4d48-BE80-07A49C0FD691}" + userId, out isApplicationNotRunning);
 
-			if (string.IsNullOrEmpty(userId) == false)
-				Messenger.Properties.Settings.ReloadSettings(userId);
+            userId = GetCommandLineArgValue(@"-userid");
+            runningMutex = new Mutex(false, "Local\\" + "{9D13D6B0-F44E-4d48-BE80-07A49C0FD691}" + userId, out isApplicationNotRunning);
 
-			if (isApplicationNotRunning && Messenger.Properties.Settings.Default.NoSplash == false)
-			{
-				screen = new SplashScreen("SplashScreen.png");
-				screen.Show(false);
-			}
+            if (string.IsNullOrEmpty(userId) == false)
+                Messenger.Properties.Settings.ReloadSettings(userId);
 
-			presentitiesStorage = (PresentitiesCollectionStorage)(ApplicationSettingsBase.Synchronized(new PresentitiesCollectionStorage()));
+            if (isApplicationNotRunning && Messenger.Properties.Settings.Default.NoSplash == false)
+            {
+                screen = new SplashScreen("SplashScreen.png");
+                screen.Show(false);
+            }
 
-			if (Messenger.Properties.Settings.Default.SettingsUpgrated == false)
-			{
-				try
-				{
-					presentitiesStorage.Upgrade();
-					presentitiesStorage.Save();
-	
-					Messenger.Properties.Settings.Default.Upgrade();
-					Messenger.Properties.Settings.Default.SettingsUpgrated = true;
-					Messenger.Properties.Settings.Default.Save();
-				}
-				catch
-				{
-				}
-			}
+            presentitiesStorage = (PresentitiesCollectionStorage)(ApplicationSettingsBase.Synchronized(new PresentitiesCollectionStorage()));
 
-			if (Messenger.Properties.Settings.Default.EndpointId == 0)
-			{
-				Messenger.Properties.Settings.Default.EndpointId = Environment.TickCount;
-				Messenger.Properties.Settings.Default.Save();
-			}
+            if (Messenger.Properties.Settings.Default.SettingsUpgrated == false)
+            {
+                try
+                {
+                    presentitiesStorage.Upgrade();
+                    presentitiesStorage.Save();
 
-			Messenger.Properties.Settings.Default.PropertyChanged += Settings_PropertyChanged;
-			
-			Messenger.Properties.Settings.Default.AutoSaveSettings = true;
+                    Messenger.Properties.Settings.Default.Upgrade();
+                    Messenger.Properties.Settings.Default.SettingsUpgrated = true;
+                    Messenger.Properties.Settings.Default.Save();
+                }
+                catch
+                {
+                }
+            }
 
-			InitializeUccapi();
-			InitializeCommandBindings();
-		}
+            if (Messenger.Properties.Settings.Default.EndpointId == 0)
+            {
+                Messenger.Properties.Settings.Default.EndpointId = Environment.TickCount;
+                Messenger.Properties.Settings.Default.Save();
+            }
 
-		private void Application_Startup(object sender, StartupEventArgs e)
-		{
-			if (isApplicationNotRunning)
-			{
-				this.CloseSplash();
+            Messenger.Properties.Settings.Default.PropertyChanged += Settings_PropertyChanged;
 
-				new Contacts();
-				this.MainWindow.Topmost = Messenger.Properties.Settings.Default.AlwaysOnTop;
-				this.MainWindow.Closed += new EventHandler(MainWindow_Closed);
-				this.MainWindow.Closing += new System.ComponentModel.CancelEventHandler(MainWindow_Closing);
-				(this.MainWindow as Contacts).Presentities = Endpoint.Presentities; // Close command use "as Contacts" too
-				this.MainWindow.Show();
+            Messenger.Properties.Settings.Default.AutoSaveSettings = true;
 
-				this.chatWindow = new Chat();
-				this.chatWindow.Closing += new System.ComponentModel.CancelEventHandler(ChatWindow_Closing);
-				this.Endpoint.Sessions.CollectionChanged += this.chatWindow.Sessions_CollectionChanged;
+            InitializeUccapi();
+            InitializeCommandBindings();
 
-				this.avChatController = new AvChatController();
-				this.Endpoint.Sessions.CollectionChanged += this.avChatController.Sessions_CollectionChanged;
+        }
 
-				if(Messenger.Properties.Settings.Default.LoginAtStartup)
-					Commands.Login.Execute(null, MainWindow);
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            if (isApplicationNotRunning)
+            {
+                this.CloseSplash();
 
-				this.StartAutoAwayTimer();
-			}
-			else
-			{
-				MessageBox.Show(AssemblyInfo.AssemblyProduct + " is already running."
-					+ "\r\n\r\nUse -userid<id> command line option if you need to start two or more instances of the application."
-					+ "\r\nExample: Messenger.exe -useriduser2",
-					AssemblyInfo.AssemblyProduct, MessageBoxButton.OK, MessageBoxImage.Exclamation);
-				this.Shutdown();
-			}
-		}
+                new Contacts();
+                
+                this.MainWindow.Topmost = Messenger.Properties.Settings.Default.AlwaysOnTop;
+                this.MainWindow.Closed += new EventHandler(MainWindow_Closed);
+                this.MainWindow.Closing += new System.ComponentModel.CancelEventHandler(MainWindow_Closing);
+                (this.MainWindow as Contacts).Presentities = Endpoint.Presentities; // Close command use "as Contacts" too
+                this.MainWindow.Show();
 
-		void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-		{
-			CleanupUccapi(100, false);
-		}
+                this.chatWindow = new Chat();
+                this.chatWindow.Closing += new System.ComponentModel.CancelEventHandler(ChatWindow_Closing);
+                this.Endpoint.Sessions.CollectionChanged += this.chatWindow.Sessions_CollectionChanged;
 
-		void MainWindow_Closed(object sender, EventArgs e)
-		{
-			CleanupUccapi(1000, false);
-		}
+                this.avChatController = new AvChatController();
+                this.Endpoint.Sessions.CollectionChanged += this.avChatController.Sessions_CollectionChanged;
 
-		private void Application_Exit(object sender, ExitEventArgs e)
-		{
-			CleanupUccapi(4000, true);
+                if (Messenger.Properties.Settings.Default.LoginAtStartup)
+                    Commands.Login.Execute(null, MainWindow);
 
-			runningMutex.Close();
-		}
+                this.StartAutoAwayTimer();
+            }
+            else
+            {
+                MessageBox.Show(AssemblyInfo.AssemblyProduct + " is already running."
+                    + "\r\n\r\nUse -userid<id> command line option if you need to start two or more instances of the application."
+                    + "\r\nExample: Messenger.exe -useriduser2",
+                    AssemblyInfo.AssemblyProduct, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                this.Shutdown();
+            }
+        }
 
-		void ChatWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-		{
-			this.chatWindow.Hide();
+        void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            CleanupUccapi(100, false);
+        }
 
-			foreach (ISession session in new List<ISession>(this.Endpoint.Sessions))
-			{
-				if (session is IImSession)
-					session.Destroy();
-			}
+        void MainWindow_Closed(object sender, EventArgs e)
+        {
+            CleanupUccapi(1000, false);
+        }
 
-			e.Cancel = true;
-		}
+        private void Application_Exit(object sender, ExitEventArgs e)
+        {
+            CleanupUccapi(4000, true);
 
-		public static Programme Instance
+            runningMutex.Close();
+        }
+
+        void ChatWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.chatWindow.Hide();
+
+            foreach (ISession session in new List<ISession>(this.Endpoint.Sessions))
+            {
+                if (session is IImSession)
+                    session.Destroy();
+            }
+
+            e.Cancel = true;
+        }
+
+        public static Programme Instance
         {
             get
             {
@@ -153,12 +156,12 @@ namespace Messenger
             }
         }
 
-		public Contacts ContactsWindow
-		{
-			get
-			{
-				return this.MainWindow as Contacts;
-			}
-		}
-	}
+        public Contacts ContactsWindow
+        {
+            get
+            {
+                return this.MainWindow as Contacts;
+            }
+        }
+    }
 }

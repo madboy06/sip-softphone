@@ -229,6 +229,15 @@
     <Compile Include="..\Messenger\Uccapi\Public\ISession.cs">
       <Link>Uccapi\Public\ISession.cs</Link>
     </Compile>
+    <Compile Include="..\Messenger\Uccapi\Public\ITransferItem.cs">
+      <Link>Uccapi\Public\ITransferItem.cs</Link>
+    </Compile>
+    <Compile Include="..\Messenger\Uccapi\Public\ITransfersManager.cs">
+      <Link>Uccapi\Public\ITransfersManager.cs</Link>
+    </Compile>
+    <Compile Include="..\Messenger\Uccapi\Public\ITransfersState.cs">
+      <Link>Uccapi\Public\ITransfersState.cs</Link>
+    </Compile>
     <Compile Include="..\Messenger\Uccapi\Public\PresentitiesCollectionXmlSerializer.cs">
       <Link>Uccapi\Public\PresentitiesCollectionXmlSerializer.cs</Link>
     </Compile>
@@ -246,6 +255,15 @@
     </Compile>
     <Compile Include="..\Messenger\Uccapi\Session.cs">
       <Link>Uccapi\Session.cs</Link>
+    </Compile>
+    <Compile Include="..\Messenger\Uccapi\TransferItem.cs">
+      <Link>Uccapi\TransferItem.cs</Link>
+    </Compile>
+    <Compile Include="..\Messenger\Uccapi\TransfersManager.cs">
+      <Link>Uccapi\TransfersManager.cs</Link>
+    </Compile>
+    <Compile Include="..\Messenger\Uccapi\TransfersState.cs">
+      <Link>Uccapi\TransfersState.cs</Link>
     </Compile>
     <Compile Include="..\Messenger\Uccapi\UccapiBase.cs">
       <Link>Uccapi\UccapiBase.cs</Link>
@@ -271,6 +289,9 @@
     <Compile Include="..\Messenger\Windows\Crash2.xaml.cs">
       <Link>Windows\Crash2.xaml.cs</Link>
       <DependentUpon>Crash2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Messenger\Windows\Helpers.cs">
+      <Link>Windows\Helpers.cs</Link>
     </Compile>
     <Compile Include="..\Messenger\Windows\PropertiesBinding.cs">
       <Link>PropertiesBinding.cs</Link>
@@ -320,6 +341,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Softphone.manifest" />
     <None Include="Properties\Settings.settings">

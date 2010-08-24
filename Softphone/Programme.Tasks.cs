@@ -25,7 +25,7 @@ namespace Messenger
 				if (Endpoint.AvSession1 != null)
 					Endpoint.AvSession1.Destroy();
 
-				if (Helpers.IsUriEqual(uri, Endpoint.Uri))
+				if (Uccapi.Helpers.IsUriEqual(uri, Endpoint.Uri))
 				{
 					CallError = @"URI is invalid, loopback is not allowed";
 					return;

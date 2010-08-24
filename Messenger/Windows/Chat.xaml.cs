@@ -52,11 +52,14 @@ namespace Messenger.Windows
 			ChatTabItemHeader header = new ChatTabItemHeader();
 			header.CloseButton.Click += new RoutedEventHandler(chatData.DestroySession);
 
+            
 			ChatTabItemContent content = new ChatTabItemContent();
 			content.SendButton.Click += new RoutedEventHandler(chatData.SendMessage);
+            content.SkipButton.Click += new RoutedEventHandler(chatData.SkipButton_Click);
+            content.CancelButton.Click += new RoutedEventHandler(chatData.CancelButton_Click); 
+
 			content.CommandBindings.Add(
 				new CommandBinding(RichTextBoxEx.RichTextBoxExCommands.CtrlEnter, chatData.Execute_SendMessage));
-
 			chatData.ChatEdit = content.ChatViewer;
 			chatData.MessageEdit = content.OutgoingMessageEdit;
 

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{6BCD3CC5-B4DA-4422-A1A1-DD0127240A2E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -112,6 +112,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\FileTransferItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\FileTransfersManagerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\SoundFileBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -172,6 +180,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\SelectFiles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\UserProperties.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -222,9 +234,16 @@
     <Compile Include="..\Softphone\Windows\WindowEx.cs">
       <Link>Windows\WindowEx.cs</Link>
     </Compile>
+    <Compile Include="Controls\FileTransferItemControl.xaml.cs">
+      <DependentUpon>FileTransferItemControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FileTransfersManagerControl.xaml.cs">
+      <DependentUpon>FileTransfersManagerControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SoundFileBox.xaml.cs">
       <DependentUpon>SoundFileBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FileTransferTests.cs" />
     <Compile Include="Helpers\LastInputTime.cs" />
     <Compile Include="Logs\Log.cs" />
     <Compile Include="Logs\LogItem.cs" />
@@ -238,9 +257,14 @@
     <Compile Include="Uccapi\AvailabilityValues.cs" />
     <Compile Include="Uccapi\AvSession.cs" />
     <Compile Include="Uccapi\CategoryName.cs" />
+    <Compile Include="Uccapi\Public\ITransfersManager.cs" />
+    <Compile Include="Uccapi\Public\ITransferItem.cs" />
+    <Compile Include="Uccapi\Public\ITransfersState.cs" />
+    <Compile Include="Uccapi\TransfersManager.cs" />
     <Compile Include="Uccapi\PresentitiesCollection.cs" />
     <Compile Include="Uccapi\IncomingMessage.cs" />
     <None Include="Garbage\ICancelPropertyChanging.cs" />
+    <Compile Include="Uccapi\TransferItem.cs" />
     <Compile Include="Uccapi\Public\EndpointStatus.cs" />
     <Compile Include="Uccapi\Public\IAvSession.cs" />
     <Compile Include="Uccapi\Public\IEndpointEvents.cs" />
@@ -275,6 +299,7 @@
     <Compile Include="Uccapi\SelfPresentity.cs" />
     <Compile Include="Uccapi\SelfPresentityMonitor.cs" />
     <Compile Include="Uccapi\Session.cs" />
+    <Compile Include="Uccapi\TransfersState.cs" />
     <Compile Include="Uccapi\UccapiBase.cs" />
     <Compile Include="Uccapi\VideoWindowHost.cs" />
     <Compile Include="Uccapi\VideoWindowWrapper.cs" />
@@ -320,6 +345,9 @@
     <Compile Include="Windows\Helpers.cs" />
     <Compile Include="Windows\NewGroup.xaml.cs">
       <DependentUpon>NewGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SelectFiles.xaml.cs">
+      <DependentUpon>SelectFiles.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\UserProperties.xaml.cs">
       <DependentUpon>UserProperties.xaml</DependentUpon>

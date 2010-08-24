@@ -14,27 +14,29 @@ namespace Uccapi
 
 		IOutgoingMessage Send(string contentType, string content);
 		void Composing(bool composing);
+
+		ITransfersManager TransfersManager { get; }
 	}
 
-	public class ImSessionEventArgs1
-		: EventArgs
-	{
-		public ImSessionEventArgs1(IOutgoingMessage message)
-		{
-			this.Message = message;
-		}
+    public class ImSessionEventArgs1
+        : EventArgs
+    {
+        public ImSessionEventArgs1(IOutgoingMessage message)
+        {
+            this.Message = message;
+        }
 
-		public IOutgoingMessage Message { get; private set; }
-	}
+        public IOutgoingMessage Message { get; private set; }
+    }
 
-	public class ImSessionEventArgs2
-		: EventArgs
-	{
-		public ImSessionEventArgs2(IIncomingMessage message)
-		{
-			this.Message = message;
-		}
+    public class ImSessionEventArgs2
+        : EventArgs
+    {
+        public ImSessionEventArgs2(IIncomingMessage message)
+        {
+            this.Message = message;
+        }
 
-		public IIncomingMessage Message { get; private set; }
-	}
+        public IIncomingMessage Message { get; private set; }
+    }
 }

@@ -18,24 +18,24 @@ using Uccapi;
 
 namespace Messenger.Windows
 {
-	/// <summary>
-	/// Interaction logic for ChatTabItemContent.xaml
-	/// </summary>
-	public partial class ChatTabItemContent : UserControl
-	{
-		public ChatTabItemContent()
-		{
-			InitializeComponent();
-		}
+    /// <summary>
+    /// Interaction logic for ChatTabItemContent.xaml
+    /// </summary>
+    public partial class ChatTabItemContent : UserControl
+    {
+        public ChatTabItemContent()
+        {
+            InitializeComponent();
+        }
 
-		private void ListView_SizeChanged(object sender, SizeChangedEventArgs e)
-		{
-			Helpers.ListGridView_UpdateColumnWidth(sender as ListView, e, 1);
-		}
+        private void ListView_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            Helpers.ListGridView_UpdateColumnWidth(sender as ListView, e, 1);
+        }
 
-		private void ListView_LostFocus(object sender, RoutedEventArgs e)
-		{
-			(sender as ListView).SelectedIndex = -1;
-		}
-	}
+        private void ListView_LostFocus(object sender, RoutedEventArgs e)
+        {
+            (sender as ListView).SelectedIndex = -1;
+        }
+    }
 }

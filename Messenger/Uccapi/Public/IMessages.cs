@@ -45,6 +45,7 @@ namespace Uccapi
 		public static string Plain = @"text/plain";
 		public static string Html = @"text/html";
 		public static string Enriched = @"text/enriched";
+        public static string FileData = @"file/data";
 	}
 
 	public enum OutgoingMessageState

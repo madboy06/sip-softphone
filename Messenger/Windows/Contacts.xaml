@@ -4,6 +4,8 @@
     xmlns:w="clr-namespace:Messenger.Windows"
     xmlns:u="clr-namespace:Uccapi"
     xmlns:l="clr-namespace:Messenger"
+    xmlns:p="clr-namespace:Messenger.Properties"
+
     Title="OfficeSIP Messenger"
     Left="{Binding Source={StaticResource Settings}, Path=Default.Left, Mode=TwoWay}"
     Top="{Binding Source={StaticResource Settings}, Path=Default.Top, Mode=TwoWay}"
@@ -61,6 +63,8 @@
                 <MenuItem Command="w:MessengerCommands.SendInstantMessage"></MenuItem>
                 <MenuItem Command="w:MessengerCommands.StartAudioConversation"></MenuItem>
                 <MenuItem Command="w:MessengerCommands.StartVideoConversation"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Command="w:MessengerCommands.SendFile"></MenuItem>
                 <Separator></Separator>
                 <MenuItem Command="w:MessengerCommands.UserProperties"></MenuItem>
             </MenuItem>
@@ -130,6 +134,8 @@
                     <MenuItem Command="w:MessengerCommands.SendInstantMessage"></MenuItem>
                     <MenuItem Command="w:MessengerCommands.StartAudioConversation"></MenuItem>
                     <MenuItem Command="w:MessengerCommands.StartVideoConversation"></MenuItem>
+                    <Separator />
+                    <MenuItem Command="w:MessengerCommands.SendFile"></MenuItem>
                     <Separator />
                     <MenuItem Command="w:MessengerCommands.UserProperties"></MenuItem>
                     <Separator />

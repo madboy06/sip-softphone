@@ -4,10 +4,7 @@
     xmlns:c="clr-namespace:Messenger.Controls"
     xmlns:w="clr-namespace:Messenger.Windows" SnapsToDevicePixels="True"
     Title="OfficeSIP Messenger - Chat"
-    Left="{Binding Source={StaticResource Settings}, Path=Default.LeftChat, Mode=TwoWay}"
-    Top="{Binding Source={StaticResource Settings}, Path=Default.TopChat, Mode=TwoWay}"
-    Width="{Binding Source={StaticResource Settings}, Path=Default.WidthChat, Mode=TwoWay}"
-    Height="{Binding Source={StaticResource Settings}, Path=Default.HeightChat, Mode=TwoWay}"
+    Left="{Binding Source={StaticResource Settings}, Path=Default.LeftChat, Mode=TwoWay}"    Top="{Binding Source={StaticResource Settings}, Path=Default.TopChat, Mode=TwoWay}"    Width="{Binding Source={StaticResource Settings}, Path=Default.WidthChat, Mode=TwoWay}"    Height="{Binding Source={StaticResource Settings}, Path=Default.HeightChat, Mode=TwoWay}"
     Loaded="Window_Loaded" Background="Transparent" Icon="/Icons/Chat.ico">
     <TabControl Name="tabControl" Margin="0,0,0,0">
     </TabControl>

@@ -14,6 +14,8 @@ namespace Messenger.Windows
 	[ValueConversion(typeof(string[]), typeof(Visibility))]
 	[ValueConversion(typeof(string), typeof(Visibility))]
 	[ValueConversion(typeof(bool), typeof(Visibility))]
+	[ValueConversion(typeof(int), typeof(Visibility))]
+	[ValueConversion(typeof(object), typeof(Visibility))]
 	class VisibilityConverter
 		: IValueConverter
 	{

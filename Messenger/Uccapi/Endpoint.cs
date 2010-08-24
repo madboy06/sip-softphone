@@ -595,11 +595,9 @@ namespace Uccapi
 			switch (uccSession.Type)
 			{
 				case UCC_SESSION_TYPE.UCCST_INSTANT_MESSAGING:
-					//session = new ImSession(this.selfPresentity);
 					session = new ImSession(this.selfPresentityMonitor);
 					break;
 				case UCC_SESSION_TYPE.UCCST_AUDIO_VIDEO:
-					//session = new AvSession(this.selfPresentity);
 					session = new AvSession(this.selfPresentityMonitor);
 					break;
 				default:

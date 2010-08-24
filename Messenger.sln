@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messenger", "Messenger\Mess
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UccpApiErrors", "UccpApiErrors\UccpApiErrors.csproj", "{8B72FA3C-C567-4DE0-A6C9-89A0C825D5B6}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "SetupMessenger\SetupMessenger.vdproj", "{91D2FCDF-30C3-4A1C-9CC2-99CDBD384B6B}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupMessenger", "SetupMessenger\SetupMessenger.vdproj", "{91D2FCDF-30C3-4A1C-9CC2-99CDBD384B6B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RichTextBoxEx", "RichTextBoxEx\RichTextBoxEx.csproj", "{3749FD44-774A-4600-818C-C01807C71C42}"
 EndProject

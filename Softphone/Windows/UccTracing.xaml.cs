@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
 using System.ComponentModel;
 using System.Windows.Input;
 using Uccapi;
@@ -30,7 +29,7 @@ namespace Messenger.Windows
 			EnableTracing = endpoint.IsTracingEnabled;
 
 			StringBuilder path = new StringBuilder();
-			if (SHGetSpecialFolderPath(IntPtr.Zero, path, CSIDL_PROFILE, false))
+			if (Helpers.SHGetSpecialFolderPath(IntPtr.Zero, path, Helpers.CSIDL_PROFILE, false))
 				path.Append(@"\Tracing");
 
 			reportsDirecory = new DirectoryInfo(path.ToString());
@@ -128,15 +127,6 @@ namespace Messenger.Windows
 		{
 			e.CanExecute = reportsDirecory.Exists;
 		}
-
-		#endregion
-
-		#region SHGetSpecialFolderPath
-
-		[DllImport("shell32.dll")]
-		static extern bool SHGetSpecialFolderPath(IntPtr hwndOwner, [Out] StringBuilder lpszPath, int nFolder, bool fCreate);
-
-		const int CSIDL_PROFILE = 0x0028;        // USERPROFILE
 
 		#endregion
 	}
