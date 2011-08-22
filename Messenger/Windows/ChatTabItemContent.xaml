@@ -88,14 +88,14 @@
         </Grid>
         <GridSplitter Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Height="3" ResizeBehavior="PreviousAndNext" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" ShowsPreview="False"></GridSplitter>
         <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-        <r:RichTextBoxEx Grid.Row="5" Grid.Column="0" VerticalScrollBarVisibility="Auto" Name="OutgoingMessageEdit" IsEnabled="{Binding Path=IsRestoringSession, Converter={StaticResource InverseConverter}, Mode=OneWay}">
+        <r:RichTextBoxEx Grid.Row="5" Grid.Column="0" VerticalScrollBarVisibility="Auto" AcceptsReturn="False" Name="OutgoingMessageEdit" IsEnabled="{Binding Path=IsRestoringSession, Converter={StaticResource InverseConverter}, Mode=OneWay}">
             <r:RichTextBoxEx.Resources>
                 <Style TargetType="{x:Type Paragraph}">
                     <Setter Property="Margin" Value="0"/>
                 </Style>
             </r:RichTextBoxEx.Resources>
         </r:RichTextBoxEx>
-        <Button Grid.Row="4" Grid.Column="1" Name="SendButton" ToolTip="Send Message ( Ctrl+Enter )" IsEnabled="{Binding Path=IsRestoringSession, Converter={StaticResource InverseConverter}, Mode=OneWay}">
+        <Button IsDefault="True" Grid.Row="4" Grid.Column="1" Name="SendButton" ToolTip="Send Message ( Ctrl+Enter )" IsEnabled="{Binding Path=IsRestoringSession, Converter={StaticResource InverseConverter}, Mode=OneWay}">
             <Button.Content>
                 <TextBlock>
                     <TextBlock.LayoutTransform>

@@ -21,8 +21,8 @@ namespace Uccapi
 		, _IUccPlatformEvents
 		, _IUccEndpointEvents
 		, _IUccServerSignalingSettingsEvents
-        , _IUccSubscriptionEvents
-        //, _IUccApplicationSessionParticipantEvents
+		, _IUccSubscriptionEvents
+		//, _IUccApplicationSessionParticipantEvents
 		//, _IUccSessionDescriptionEvaluator
 		, _IUccSessionManagerEvents
 		// , _IUccSignalingChannelEvents
@@ -30,17 +30,17 @@ namespace Uccapi
 		, _IUccMediaEndpointEvents
 		, _IUccUserSearchQueryEvents
 		, INotifyPropertyChanged
-    {
-        public event EventHandler<EndpointEventArgss> Enabled;
+	{
+		public event EventHandler<EndpointEventArgss> Enabled;
 		public event EventHandler<EndpointEventArgs> Disabled;
 		public event EventHandler<UserSearchEventArgs> UserSearchFinished;
 
 		public event EventHandler<AvInvite> IncommingAvSession;
 
-        private IUccPlatform platform;
+		private IUccPlatform platform;
 		private IUccTraceSettings traceSettings;
-        private IUccEndpoint endpoint;
-        private UccUri uri;
+		private IUccEndpoint endpoint;
+		private UccUri uri;
 		private IUccSubscription subscription;
 		private AvailabilityValues loginAvailability;
 		private bool isEnabled;
@@ -103,7 +103,7 @@ namespace Uccapi
 			this.selfPresentityMonitor.PropertyChanged -= SelfPresentityMonitor_PropertyChanged;
 
 			this.Sessions.Clear();
-		//	this.AvInvites.Clear();
+			//	this.AvInvites.Clear();
 
 			this.Cleanup();
 		}
@@ -151,7 +151,7 @@ namespace Uccapi
 
 
 			// set vars
-			if(Helpers.TryParseUri(Helpers.CorrectUri(configuration.Uri), out this.uri) == false)
+			if (Helpers.TryParseUri(Helpers.CorrectUri(configuration.Uri), out this.uri) == false)
 				throw new Exception("Sign-in address is not valid Uri");
 			this.selfPresentity.SetUri(this.uri.Value);
 			this.selfPresentityMonitor.SetUri(this.uri);
@@ -215,13 +215,15 @@ namespace Uccapi
 
 			ComEvents.UnadviseAll(this);
 
-			////if (this.selfPresentityMonitor != null)
 			this.selfPresentityMonitor.DestroyUccPresentity();
-			////this.selfPresentityMonitor = null;
+			if (this.selfSubscription != null && this.selfSubscription.Presentities.Count > 0)
+				this.selfSubscription.Unsubscribe(null);
 			this.selfSubscription = null;
 
 			foreach (Presentity presentity in this.Presentities)
 				presentity.DestroyUccPresentity();
+			if (this.subscription != null && this.subscription.Presentities.Count > 0)
+				this.subscription.Unsubscribe(null);
 			this.subscription = null;
 
 			this.signalingSettings = null;
@@ -469,9 +471,9 @@ namespace Uccapi
 		}
 
 		private void Subscribe(IEnumerable presentities)
-        {
+		{
 			this.UpdateSubscription(presentities, null);
-        }
+		}
 
 		#endregion Subscription
 
@@ -479,9 +481,9 @@ namespace Uccapi
 
 		public ISelfPresentity SelfPresentity
 		{
-			get 
-			{ 
-				return this.selfPresentity; 
+			get
+			{
+				return this.selfPresentity;
 			}
 		}
 
@@ -544,7 +546,7 @@ namespace Uccapi
 			IUccPublicationManager publicationManager = (IUccPublicationManager)this.endpoint;
 
 			IUccCategoryInstance categoryInstance = null;
-				//this.selfPresentity.CreatePublishableStateCategoryInstance();
+			//this.selfPresentity.CreatePublishableStateCategoryInstance();
 
 			if (categoryInstance == null)
 			{
@@ -559,7 +561,7 @@ namespace Uccapi
 			IUccPresenceStateInstance stateInstance = (IUccPresenceStateInstance)categoryInstance;
 			stateInstance.Availability = (int)this.SelfPresentity.Availability;
 			stateInstance.Type = UCC_PRESENCE_STATE_TYPE.UCCPST_USER_STATE;
-			
+
 			IUccPublication publication = publicationManager.CreatePublication();
 			ComEvents.Advise<_IUccPublicationEvent>(publication, this);
 			publication.AddPublishableCategoryInstance(categoryInstance);
@@ -840,7 +842,7 @@ namespace Uccapi
 		{
 			OnEvent<EndpointEventArgs>(Disabled, eventArgs);
 		}
-	
+
 		#endregion
 
 		#region _IUccUserSearchQueryEvents [ OnExecute ]
@@ -867,7 +869,7 @@ namespace Uccapi
 		}
 
 		void _IUccSessionManagerEvents.OnIncomingSession(IUccEndpoint eventSource, UccIncomingSessionEvent eventData)
-        {
+		{
 			if (eventData.Session.Type == UCC_SESSION_TYPE.UCCST_INSTANT_MESSAGING)
 			{
 				if (disableImSessions)
@@ -892,7 +894,7 @@ namespace Uccapi
 			}
 			else if (eventData.Session.Type == UCC_SESSION_TYPE.UCCST_AUDIO_VIDEO)
 			{
-				AvInvite eventArgs = 
+				AvInvite eventArgs =
 					new AvInvite(this.GetPresentity(eventData.Inviter.Uri.Value), this.configuration.AvInviteTimeout,
 						eventData, (uccSession) => { this.CreateSession(uccSession); });
 
@@ -904,15 +906,15 @@ namespace Uccapi
 			{
 				eventData.Reject(UCC_REJECT_OR_TERMINATE_REASON.UCCROTR_NOT_ACCEPTABLE);
 			}
-        }
+		}
 
-        void _IUccSessionManagerEvents.OnOutgoingSession(IUccEndpoint eventSource, UccOutgoingSessionEvent eventData)
-        {
-        }
+		void _IUccSessionManagerEvents.OnOutgoingSession(IUccEndpoint eventSource, UccOutgoingSessionEvent eventData)
+		{
+		}
 
-        #endregion
+		#endregion
 
-        #region _IUccSessionDescriptionEvaluator // not used
+		#region _IUccSessionDescriptionEvaluator // not used
 
 		//bool _IUccSessionDescriptionEvaluator.Evaluate(
 		//                             string ContentType,
@@ -921,9 +923,9 @@ namespace Uccapi
 		//    return SessionDescription.ToLower().Trim() == "xxx-session";
 		//}
 
-        #endregion _IUccSessionDescriptionEvaluator
+		#endregion _IUccSessionDescriptionEvaluator
 
-        #region _IUccApplicationSessionParticipantEvents // not used
+		#region _IUccApplicationSessionParticipantEvents // not used
 
 		//void _IUccApplicationSessionParticipantEvents.OnIncomingInvitation(
 		//    UccApplicationSessionParticipant eventSource,
@@ -956,9 +958,9 @@ namespace Uccapi
 		//{
 		//}
 
-        #endregion _IUccApplicationSessionParticipantEvents
+		#endregion _IUccApplicationSessionParticipantEvents
 
-        #region _IUccSignalingChannelEvents // no used // experimental
+		#region _IUccSignalingChannelEvents // no used // experimental
 
 		//void _IUccSignalingChannelEvents.OnIncomingMessage(
 		//    IUccSignalingChannel eventSource,
@@ -980,7 +982,7 @@ namespace Uccapi
 		//        System.Windows.MessageBox.Show("SUBS failed!");
 		//}
 
-        #endregion _IUccSignalingChannelEvents
+		#endregion _IUccSignalingChannelEvents
 
 		#region _IUccPublicationEvent
 
@@ -1018,9 +1020,9 @@ namespace Uccapi
 			   UccSubscription subscription,
 			   UccSubscriptionEvent eventInfo)
 		{
-        }
+		}
 
-        void _IUccSubscriptionEvents.OnSubscribe(
+		void _IUccSubscriptionEvents.OnSubscribe(
 			   UccSubscription subscription,
 			   UccSubscriptionEvent eventInfo)
 		{
@@ -1028,19 +1030,19 @@ namespace Uccapi
 
 			if (eventInfo.IsComplete)
 			{
-				foreach(UccPresentity presenty in eventInfo.Presentities)
+				foreach (UccPresentity presenty in eventInfo.Presentities)
 				{
 					IUccOperationProgressEvent progressEvent = eventInfo.GetOperationInfo(presenty);
 
 					Debug.WriteLine(String.Format("Presentity: <{0}> {1}", presenty.Uri.AddressOfRecord.ToString(), Errors.ToString(progressEvent.StatusCode)), "OnSubscribe");
 				}
 			}
-        }
+		}
 
-        void _IUccSubscriptionEvents.OnUnsubscribe(
-               UccSubscription subscription,
-               UccSubscriptionEvent eventInfo)
-        {
+		void _IUccSubscriptionEvents.OnUnsubscribe(
+			   UccSubscription subscription,
+			   UccSubscriptionEvent eventInfo)
+		{
 			Debug.WriteLine("OnUnsubscribe");
 
 			if (eventInfo.IsComplete)
@@ -1059,21 +1061,21 @@ namespace Uccapi
 		#region _IUccPlatformEvents
 
 		void _IUccPlatformEvents.OnShutdown(UccPlatform eventSource, IUccOperationProgressEvent eventData)
-        {
-        }
-
-        void _IUccPlatformEvents.OnIpAddrChange(UccPlatform eventSource, object eventData)
-        {
+		{
 		}
-		
+
+		void _IUccPlatformEvents.OnIpAddrChange(UccPlatform eventSource, object eventData)
+		{
+		}
+
 		#endregion _IUccPlatformEvents
 
 		#region _IUccEndpointEvents [ OnEnable, OnDisable ]
 
 		void _IUccEndpointEvents.OnEnable(IUccEndpoint eventSource, IUccOperationProgressEvent eventData)
-        {
-            if (eventData.IsComplete)
-            {
+		{
+			if (eventData.IsComplete)
+			{
 				if (eventData.StatusCode >= 0)
 				{
 					this.IsEnabled = true;
@@ -1099,7 +1101,8 @@ namespace Uccapi
 
 				if (((UInt32)eventData.StatusCode == Errors.UCC_E_SIP_STATUS_CLIENT_UNAUTHORIZED ||
 					(UInt32)eventData.StatusCode == Errors.UCC_E_SIP_AUTHENTICATION_TYPE_NOT_SUPPORTED ||
-					(UInt32)eventData.StatusCode == Errors.UCC_E_AUTHENTICATION_SERVER_UNAVAILABLE)
+					(UInt32)eventData.StatusCode == Errors.UCC_E_AUTHENTICATION_SERVER_UNAVAILABLE)//||
+					//(UInt32)eventData.StatusCode == Errors.opaque)
 						&& enableErrors.Count < configuration.AuthenticationModes.Length)
 				{
 					this.InternalBeginLogin();
@@ -1108,18 +1111,18 @@ namespace Uccapi
 				{
 					this.OnEnabled();
 				}
-            }
-        }
+			}
+		}
 
-        void _IUccEndpointEvents.OnDisable(IUccEndpoint eventSource, IUccOperationProgressEvent eventData)
-        {
-            if (eventData.IsComplete)
-            {
-                CleanupEndpoint();
+		void _IUccEndpointEvents.OnDisable(IUccEndpoint eventSource, IUccOperationProgressEvent eventData)
+		{
+			if (eventData.IsComplete)
+			{
+				CleanupEndpoint();
 				this.IsDisabled = true;
-				
+
 				OnDisabled(new EndpointEventArgs(eventData));
-            }
+			}
 		}
 
 		#endregion _IUccEndpointEvents

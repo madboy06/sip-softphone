@@ -59,7 +59,7 @@ namespace Messenger.Windows
             content.CancelButton.Click += new RoutedEventHandler(chatData.CancelButton_Click); 
 
 			content.CommandBindings.Add(
-				new CommandBinding(RichTextBoxEx.RichTextBoxExCommands.CtrlEnter, chatData.Execute_SendMessage));
+				new CommandBinding(RichTextBoxEx.RichTextBoxExCommands.CtrlEnter, chatData.Execute_InsertNewLine));
 			chatData.ChatEdit = content.ChatViewer;
 			chatData.MessageEdit = content.OutgoingMessageEdit;
 

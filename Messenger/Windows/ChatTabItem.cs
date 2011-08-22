@@ -228,6 +228,11 @@ namespace Messenger.Windows
 
         }
 
+		public void Execute_InsertNewLine(object sender, ExecutedRoutedEventArgs e)
+		{
+			MessageEdit.InsertNewLine();
+		}
+
         public void Execute_SendMessage(object sender, ExecutedRoutedEventArgs e)
         {
             SendMessage(sender, e);

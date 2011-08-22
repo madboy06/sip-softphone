@@ -34,7 +34,7 @@ namespace RichTextBoxEx
 			new RoutedUICommand("Set Default Font", "SetDefaultFont", typeof(RichTextBoxExCommands));
 
 		public readonly static RoutedUICommand CtrlEnter =
-			new RoutedUICommand("CtrlEnter", "CtrlEnter", typeof(RichTextBoxExCommands), 
+			new RoutedUICommand("CtrlEnter", "CtrlEnter", typeof(RichTextBoxExCommands),
 				CreateGestureCollection(Key.Enter, ModifierKeys.Control));
 
 		static private InputGestureCollection CreateGestureCollection(Key key, ModifierKeys modifiers)
@@ -108,7 +108,7 @@ namespace RichTextBoxEx
 				ContextMenu.Items.RemoveAt(0);
 				spellCheckMenuIndex--;
 			}
-			
+
 			if (SpellCheck.IsEnabled && Selection.IsEmpty && IsReadOnly == false)
 			{
 				SpellingError spellingError = GetSpellingError(CaretPosition);
@@ -763,7 +763,7 @@ namespace RichTextBoxEx
 			{
 				writer.Write(rtf);
 				writer.Flush();
-				
+
 				memoryStream.Seek(0, SeekOrigin.Begin);
 
 				range.Load(memoryStream, DataFormats.Rtf);
@@ -963,10 +963,10 @@ namespace RichTextBoxEx
 					System.Windows.Threading.DispatcherPriority.Normal, new EventHandler(DoDragDrop),
 					this, new EventArgs());
 			}
-        }
+		}
 
 		private void DoDragDrop(object sender, EventArgs e)
-        {
+		{
 			Selection.Select(dragStart, dragEnd);
 
 			DataObject data = new DataObject(System.Windows.DataFormats.Rtf.ToString(), GetRtf(new TextRange(dragStart, dragEnd)));
@@ -1031,6 +1031,13 @@ namespace RichTextBoxEx
 		#endregion
 
 		#region Helpers: RemoveEmptyLastParagraph
+
+		public void InsertNewLine()
+		{
+			Selection.Text = Environment.NewLine;
+			CaretPosition = Selection.End;
+			Selection.Select(CaretPosition, CaretPosition);
+		}
 
 		public void RemoveEmptyLastParagraph()
 		{
