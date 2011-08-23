@@ -13,6 +13,7 @@
     <StackPanel Style="{StaticResource MainPanel}">
         <CheckBox Margin="0,0,0,8" IsChecked="{Binding Path=NoSplash}">Do not show splash screen at startup</CheckBox>
         <CheckBox IsChecked="{Binding Path=MinimizeOnClose}">Minimize window on close button</CheckBox>
+        <CheckBox IsChecked="{Binding Path=RunMinimized}">Start program in minimized window</CheckBox>
         <CheckBox Margin="0,0,0,8" IsChecked="{Binding Path=AlwaysOnTop}">Always on top</CheckBox>
         <CheckBox IsChecked="{Binding Path=LoginAtStartup}">
             Automatically login when Messenger starts</CheckBox>
