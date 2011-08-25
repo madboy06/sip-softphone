@@ -230,6 +230,7 @@
       <DependentUpon>SoundFileBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="FileTransferTests.cs" />
+    <Compile Include="FlashWindow.cs" />
     <Compile Include="Helpers\LastInputTime.cs" />
     <Compile Include="Logs\Log.cs" />
     <Compile Include="Logs\LogItem.cs" />

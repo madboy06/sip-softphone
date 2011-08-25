@@ -22,14 +22,14 @@ using Uccapi;
 
 namespace Messenger.Windows
 {
-    /// <summary>
-    /// Interaction logic for Chat.xaml
-    /// </summary>
-    public partial class Chat : Window
-    {
-        public Chat()
-        {
-            InitializeComponent();
+	/// <summary>
+	/// Interaction logic for Chat.xaml
+	/// </summary>
+	public partial class Chat : Window
+	{
+		public Chat()
+		{
+			InitializeComponent();
 		}
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -52,11 +52,11 @@ namespace Messenger.Windows
 			ChatTabItemHeader header = new ChatTabItemHeader();
 			header.CloseButton.Click += new RoutedEventHandler(chatData.DestroySession);
 
-            
+
 			ChatTabItemContent content = new ChatTabItemContent();
 			content.SendButton.Click += new RoutedEventHandler(chatData.SendMessage);
-            content.SkipButton.Click += new RoutedEventHandler(chatData.SkipButton_Click);
-            content.CancelButton.Click += new RoutedEventHandler(chatData.CancelButton_Click); 
+			content.SkipButton.Click += new RoutedEventHandler(chatData.SkipButton_Click);
+			content.CancelButton.Click += new RoutedEventHandler(chatData.CancelButton_Click);
 
 			content.CommandBindings.Add(
 				new CommandBinding(RichTextBoxEx.RichTextBoxExCommands.CtrlEnter, chatData.Execute_InsertNewLine));
@@ -70,6 +70,8 @@ namespace Messenger.Windows
 
 			tabControl.Items.Add(tabItem);
 			tabControl.SelectedIndex = tabControl.Items.Count - 1;
+
+			session.IncomingMessage += session_IncomingMessage;
 		}
 
 		private TabItem FindTabItem(ISession session)
@@ -80,16 +82,18 @@ namespace Messenger.Windows
 			return null;
 		}
 
-		private void RemoveTabItem(ISession session)
+		private void RemoveTabItem(IImSession session)
 		{
 			this.tabControl.Items.Remove(this.FindTabItem(session));
+
+			session.IncomingMessage -= session_IncomingMessage;
 		}
 
 		public void SelectTabItem(ISession session)
 		{
 			this.tabControl.SelectedItem = this.FindTabItem(session);
 		}
-		
+
 		public void Sessions_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
 		{
 			if (e.NewItems != null)
@@ -110,11 +114,16 @@ namespace Messenger.Windows
 			if (e.OldItems != null && e.Action != NotifyCollectionChangedAction.Move)
 			{
 				foreach (Session session in e.OldItems)
-					if (session is ImSession)
-						this.RemoveTabItem(session);
+					if (session is IImSession)
+						this.RemoveTabItem(session as IImSession);
 				if (tabControl.Items.Count == 0)
 					this.Hide();
 			}
+		}
+
+		private void session_IncomingMessage(object sender, ImSessionEventArgs2 e)
+		{
+			FlashWindow.Flash(this, FlashWindow.FLASHW_TIMERNOFG | FlashWindow.FLASHW_TRAY, 2);
 		}
 	}
 }
