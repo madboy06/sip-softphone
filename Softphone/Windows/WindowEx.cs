@@ -24,9 +24,9 @@ namespace Messenger.Windows
 			DataContext = this;
 		}
 
-		public bool Result 
-		{ 
-			get; 
+		public bool Result
+		{
+			get;
 			protected set;
 		}
 

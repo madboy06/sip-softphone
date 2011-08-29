@@ -5,7 +5,6 @@
     xmlns:u="clr-namespace:Uccapi"
     xmlns:l="clr-namespace:Messenger"
     xmlns:p="clr-namespace:Messenger.Properties"
-
     Title="OfficeSIP Messenger"
     Left="{Binding Source={StaticResource Settings}, Path=Default.Left, Mode=TwoWay}"
     Top="{Binding Source={StaticResource Settings}, Path=Default.Top, Mode=TwoWay}"
@@ -15,15 +14,50 @@
     Background="Transparent" Visibility="Visible" SnapsToDevicePixels="True"
     Loaded="Window_Loaded" Closed="Window_Closed">
     <Window.Resources>
-        <ContextMenu x:Key="NotifierContextMenu" Placement="MousePoint">
-            <MenuItem Command="w:Commands.Close"></MenuItem>
-            <Separator></Separator>
-            <!--
-            <MenuItem Command="w:MessengerCommands.AlwaysOnTop"></MenuItem>
-            -->
-            <MenuItem Command="w:Commands.About"></MenuItem>
-            <MenuItem Command="w:Commands.Preferences"></MenuItem>
-        </ContextMenu>
+        <ResourceDictionary>
+            <Style x:Key="stateImageStyle" TargetType="{x:Type Image}">
+                <Setter Property="Margin" Value="5,2,5,2" />
+                <Setter Property="Width" Value="16" />
+                <Setter Property="Height" Value="16" />
+            </Style>
+            <ContextMenu x:Key="NotifierContextMenu" Placement="MousePoint">
+                <MenuItem Command="w:Commands.Close"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Command="w:Commands.About"></MenuItem>
+                <MenuItem Command="w:Commands.Preferences"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Click="StateMenuItem_Click" DataContext="{x:Static u:AvailabilityValues.Online}" Header="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}">
+                    <MenuItem.Icon>
+                        <Image Style="{StaticResource stateImageStyle}" Source="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Click="StateMenuItem_Click" DataContext="{x:Static u:AvailabilityValues.Busy}" Header="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}">
+                    <MenuItem.Icon>
+                        <Image Style="{StaticResource stateImageStyle}" Source="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Click="StateMenuItem_Click" DataContext="{x:Static u:AvailabilityValues.DoNotDisturb}" Header="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}">
+                    <MenuItem.Icon>
+                        <Image Style="{StaticResource stateImageStyle}" Source="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Click="StateMenuItem_Click" DataContext="{x:Static u:AvailabilityValues.BeRightBack}" Header="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}">
+                    <MenuItem.Icon>
+                        <Image Style="{StaticResource stateImageStyle}" Source="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Click="StateMenuItem_Click" DataContext="{x:Static u:AvailabilityValues.Away}" Header="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}">
+                    <MenuItem.Icon>
+                        <Image Style="{StaticResource stateImageStyle}" Source="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Click="StateMenuItem_Click" DataContext="{x:Static u:AvailabilityValues.Offline}" Header="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}">
+                    <MenuItem.Icon>
+                        <Image Style="{StaticResource stateImageStyle}" Source="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </ContextMenu>
+        </ResourceDictionary>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -94,33 +128,33 @@
                     <ContextMenu>
                         <MenuItem Click="StateMenuItem_Click" DataContext="{x:Static u:AvailabilityValues.Online}" Header="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}">
                             <MenuItem.Icon>
-                                <Image Margin="5,2,5,2" Width="16" Height="16" Source="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}"></Image>
+                                <Image Style="{StaticResource stateImageStyle}" Source="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}"></Image>
                                 <!-- <ContentControl Margin="5,2,5,2" Template="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}" IsTabStop="False" /> -->
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem Click="StateMenuItem_Click" DataContext="{x:Static u:AvailabilityValues.Busy}" Header="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}">
                             <MenuItem.Icon>
-                                <Image Margin="5,2,5,2" Width="16" Height="16" Source="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}"></Image>
+                                <Image Style="{StaticResource stateImageStyle}" Source="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}"></Image>
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem Click="StateMenuItem_Click" DataContext="{x:Static u:AvailabilityValues.DoNotDisturb}" Header="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}">
                             <MenuItem.Icon>
-                                <Image Margin="5,2,5,2" Width="16" Height="16" Source="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}"></Image>
+                                <Image Style="{StaticResource stateImageStyle}" Source="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}"></Image>
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem Click="StateMenuItem_Click" DataContext="{x:Static u:AvailabilityValues.BeRightBack}" Header="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}">
                             <MenuItem.Icon>
-                                <Image Margin="5,2,5,2" Width="16" Height="16" Source="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}"></Image>
+                                <Image Style="{StaticResource stateImageStyle}" Source="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}"></Image>
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem Click="StateMenuItem_Click" DataContext="{x:Static u:AvailabilityValues.Away}" Header="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}">
                             <MenuItem.Icon>
-                                <Image Margin="5,2,5,2" Width="16" Height="16" Source="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}"></Image>
+                                <Image Style="{StaticResource stateImageStyle}" Source="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}"></Image>
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem Click="StateMenuItem_Click" DataContext="{x:Static u:AvailabilityValues.Offline}" Header="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}">
                             <MenuItem.Icon>
-                                <Image Margin="5,2,5,2" Width="16" Height="16" Source="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}"></Image>
+                                <Image Style="{StaticResource stateImageStyle}" Source="{Binding Mode=OneTime, Converter={StaticResource StateConverter}}"></Image>
                             </MenuItem.Icon>
                         </MenuItem>
                     </ContextMenu>
