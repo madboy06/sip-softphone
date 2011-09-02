@@ -4,8 +4,8 @@
     xmlns:w="clr-namespace:Messenger.Windows"
     Left="{Binding Source={StaticResource Settings}, Path=Default.LeftAvChat, Mode=TwoWay}"
     Top="{Binding Source={StaticResource Settings}, Path=Default.TopAvChat, Mode=TwoWay}"
-    Title="OfficeSIP Messenger - Audio Video Chat" MinWidth="300" 
-    SizeToContent="WidthAndHeight" ResizeMode="CanResize">
+    Title="AssemblyTitle - Audio Video Chat" MinWidth="300" 
+    SizeToContent="WidthAndHeight" ResizeMode="CanResize" x:Uid="w11">
     <Window.CommandBindings>
         <CommandBinding Command="w:Commands.ViewSessionDetails" Executed="ViewSessionDetails_Executed"></CommandBinding>
         <CommandBinding Command="w:Commands.ViewLocalVideo" Executed="ViewLocalVideoBinding_Executed"></CommandBinding>

@@ -26,7 +26,6 @@ namespace Messenger
         {
             CommandBindings = new CommandBindingCollection();
 
-            CommandBindings.Add(new CommandBinding(MessengerCommands.Close, new ExecutedRoutedEventHandler(CloseBinding_Executed)));
             CommandBindings.Add(new CommandBinding(MessengerCommands.AddContact, new ExecutedRoutedEventHandler(AddContactBinding_Executed)));
             CommandBindings.Add(new CommandBinding(MessengerCommands.RemoveContact, new ExecutedRoutedEventHandler(RemoveContactBinding_Executed), new CanExecuteRoutedEventHandler(RemoveContactBinding_CanExecute)));
             CommandBindings.Add(new CommandBinding(MessengerCommands.FindContact, new ExecutedRoutedEventHandler(FindContactBinding_Executed), new CanExecuteRoutedEventHandler(FindContactBinding_CanExecute)));
@@ -35,8 +34,6 @@ namespace Messenger
             CommandBindings.Add(new CommandBinding(MessengerCommands.StartAudioConversation, new ExecutedRoutedEventHandler(StartAudioConversationBinding_Executed), new CanExecuteRoutedEventHandler(StartConversationBinding_CanExecute)));
             CommandBindings.Add(new CommandBinding(MessengerCommands.StartVideoConversation, new ExecutedRoutedEventHandler(StartVideoConversationBinding_Executed), new CanExecuteRoutedEventHandler(StartConversationBinding_CanExecute)));
             CommandBindings.Add(new CommandBinding(MessengerCommands.UserProperties, new ExecutedRoutedEventHandler(UserPropertiesBinding_Executed), new CanExecuteRoutedEventHandler(UserPropertiesBinding_CanExecute)));
-            CommandBindings.Add(new CommandBinding(MessengerCommands.GotoUrl, new ExecutedRoutedEventHandler(GotoUrlBinding_Executed)));
-            CommandBindings.Add(new CommandBinding(MessengerCommands.GotoEmail, new ExecutedRoutedEventHandler(GotoEmailBinding_Executed)));
             CommandBindings.Add(new CommandBinding(MessengerCommands.CloseDialog, new ExecutedRoutedEventHandler(CloseDialogBinding_Executed)));
         }
 
@@ -140,52 +137,6 @@ namespace Messenger
         {
             e.CanExecute = this.ContactsWindow.ContactList.SelectedIndex >= 0;
             e.Handled = true;
-        }
-
-        #endregion
-
-        #region GotoUrl, GotoEmail
-
-        private void GotoUrlBinding_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            if (e.Parameter != null && e.Parameter is string)
-            {
-                try
-                {
-                    using (System.Diagnostics.Process process = new System.Diagnostics.Process())
-                    {
-                        process.StartInfo.FileName = e.Parameter as string;
-                        process.StartInfo.UseShellExecute = true;
-                        process.Start();
-                    }
-                }
-                catch
-                {
-                }
-            }
-        }
-
-        private void GotoEmailBinding_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            if (e.Parameter != null && e.Parameter is string)
-            {
-                try
-                {
-                    string email = e.Parameter as string;
-                    if (email.StartsWith(@"mailto:", StringComparison.OrdinalIgnoreCase) == false)
-                        email = @"mailto:" + email;
-
-                    using (System.Diagnostics.Process process = new System.Diagnostics.Process())
-                    {
-                        process.StartInfo.FileName = email;
-                        process.StartInfo.UseShellExecute = true;
-                        process.Start();
-                    }
-                }
-                catch
-                {
-                }
-            }
         }
 
         #endregion

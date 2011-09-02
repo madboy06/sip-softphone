@@ -274,6 +274,9 @@
     <Compile Include="..\Messenger\Uccapi\VideoWindowWrapper.cs">
       <Link>Uccapi\VideoWindowWrapper.cs</Link>
     </Compile>
+    <Compile Include="..\Messenger\Windows\BaseCommands.cs">
+      <Link>Windows\BaseCommands.cs</Link>
+    </Compile>
     <Compile Include="..\Messenger\Windows\Converters\InverseConverter.cs">
       <Link>Converters\InverseConverter.cs</Link>
     </Compile>

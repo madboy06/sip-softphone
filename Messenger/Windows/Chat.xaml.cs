@@ -30,6 +30,7 @@ namespace Messenger.Windows
 		public Chat()
 		{
 			InitializeComponent();
+			Title = Title.Replace("AssemblyTitle", AssemblyInfo.AssemblyTitle);
 		}
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)

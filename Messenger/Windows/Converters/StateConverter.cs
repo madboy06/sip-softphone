@@ -102,34 +102,34 @@ namespace Messenger.Windows
 					switch ((AvailabilityValues)value)
 					{
 						case AvailabilityValues.Online:
-							result = @"Available";
+							result = BaseCommands.LoadString(@"Available");
 							break;
 						case AvailabilityValues.Away:
-							result = @"Away";
+							result = BaseCommands.LoadString(@"Away");
 							break;
 						case AvailabilityValues.Idle:
-							result = @"Idle";
+							result = BaseCommands.LoadString(@"Idle");
 							break;
 						case AvailabilityValues.BeRightBack:
-							result = @"Be Right Back";
+							result = BaseCommands.LoadString(@"BeRightBack");
 							break;
 						case AvailabilityValues.Busy:
-							result = @"Busy";
+							result = BaseCommands.LoadString(@"Busy");
 							break;
 						case AvailabilityValues.BusyIdle:
-							result = @"Busy (Away)";
+							result = BaseCommands.LoadString(@"BusyAway");
 							break;
 						case AvailabilityValues.DoNotDisturb:
-							result = @"Do Not Disturb";
+							result = BaseCommands.LoadString(@"DoNotDisturb");
 							break;
 						case AvailabilityValues.Offline:
 							if (parameterString == @"NoAppearOffline")
 								goto case AvailabilityValues.Unknown;
-							result = @"Appear Offline";
+							result = BaseCommands.LoadString(@"AppearOffline");
 							break;
 						case AvailabilityValues.Unknown:
 						default:
-							result = @"Offline";
+							result = BaseCommands.LoadString(@"Offline");
 							break;
 					}
 				}

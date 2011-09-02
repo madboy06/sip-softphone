@@ -67,7 +67,7 @@
         </Grid.RowDefinitions>
         <!-- MENU -->
         <Menu Grid.Row="0" BorderBrush="Gray" BorderThickness="1" Name="menu">
-            <MenuItem Header="Messenger">
+            <MenuItem x:Uid="mm1" Header="Messenger">
                 <MenuItem Command="w:Commands.Login"></MenuItem>
                 <MenuItem Command="w:Commands.LoginAs"></MenuItem>
                 <MenuItem Command="w:Commands.Logout"></MenuItem>
@@ -79,17 +79,13 @@
                 <Separator></Separator>
                 <MenuItem Command="w:Commands.Close"></MenuItem>
             </MenuItem>
-            <MenuItem Header="View">
-                <!--
-                <MenuItem IsChecked="{Binding Mode=OneWay, Path=IsShowOffline}" Command="w:MessengerCommands.ToggleShowOfflineContacts" IsCheckable="True"></MenuItem>
-                <MenuItem IsChecked="{Binding Mode=OneWay, Path=IsShowGroups}" Command="w:MessengerCommands.ToggleShowGroups" IsCheckable="True"></MenuItem>
-                -->
+            <MenuItem x:Uid="mm2" Header="View">
                 <MenuItem Command="w:Commands.ViewIncomingCalls"></MenuItem>
                 <Separator></Separator>
                 <MenuItem Name="menuShowOffline" Command="w:MessengerCommands.ToggleShowOfflineContacts" IsCheckable="True"></MenuItem>
                 <MenuItem Name="menuShowGroups" Command="w:MessengerCommands.ToggleShowGroups" IsCheckable="True"></MenuItem>
             </MenuItem>
-            <MenuItem Header="Contacts">
+            <MenuItem x:Uid="mm3" Header="Contacts">
                 <MenuItem Command="w:MessengerCommands.FindContact"></MenuItem>
                 <MenuItem Command="w:MessengerCommands.AddContact"></MenuItem>
                 <MenuItem Command="w:MessengerCommands.RemoveContact"></MenuItem>
@@ -102,7 +98,7 @@
                 <Separator></Separator>
                 <MenuItem Command="w:MessengerCommands.UserProperties"></MenuItem>
             </MenuItem>
-            <MenuItem Header="Help">
+            <MenuItem x:Uid="mm4" Header="Help">
                 <MenuItem Command="w:Commands.UccTracing"></MenuItem>
                 <Separator></Separator>
                 <MenuItem Command="w:Commands.Feedback"></MenuItem>
@@ -174,7 +170,7 @@
                     <MenuItem Command="w:MessengerCommands.UserProperties"></MenuItem>
                     <Separator />
                     <!-- Begin Groups -->
-                    <MenuItem Header="Group" ItemsSource="{Binding Path=GroupsMenuItems}">
+                    <MenuItem x:Uid="cm1" Header="Group" ItemsSource="{Binding Path=GroupsMenuItems}">
                         <MenuItem.ItemContainerStyle>
                             <Style TargetType="MenuItem">
                                 <Setter Property="Header" Value="{Binding Path=Group, Converter={StaticResource GroupConverter}}"/>
@@ -184,7 +180,7 @@
                             </Style>
                         </MenuItem.ItemContainerStyle>
                     </MenuItem>
-                    <MenuItem Header="New Group" Click="NewGroupMenuItem_Click"></MenuItem>
+                    <MenuItem x:Uid="cm2" Header="New Group" Click="NewGroupMenuItem_Click"></MenuItem>
                     <!-- End Groups -->
                     <Separator />
                     <MenuItem Command="w:MessengerCommands.AddContact"></MenuItem>

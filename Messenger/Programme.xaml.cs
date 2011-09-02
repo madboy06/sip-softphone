@@ -24,7 +24,7 @@ namespace Messenger
 	public partial class Programme : Application
 	{
 		private Mutex runningMutex;
-		private bool isApplicationNotRunning;
+		private bool isApplicationNotRunningYet;
 		private string userId;
 		public Chat chatWindow;
 		private AvChatController avChatController;
@@ -32,18 +32,22 @@ namespace Messenger
 
 		public Programme()
 		{
+			//var cultureInfo = new System.Globalization.CultureInfo("ru-RU");
+			//Thread.CurrentThread.CurrentCulture = cultureInfo;
+			//Thread.CurrentThread.CurrentUICulture = cultureInfo;
+
 #if DEBUG
 #else
 			InitializeCrashHandler();
 #endif
 
 			userId = GetCommandLineArgValue(@"-userid");
-			runningMutex = new Mutex(false, "Local\\" + "{9D13D6B0-F44E-4d48-BE80-07A49C0FD691}" + userId, out isApplicationNotRunning);
+			runningMutex = new Mutex(false, "Local\\" + "{9D13D6B0-F44E-4d48-BE80-07A49C0FD691}" + userId, out isApplicationNotRunningYet);
 
 			if (string.IsNullOrEmpty(userId) == false)
 				Messenger.Properties.Settings.ReloadSettings(userId);
 
-			if (isApplicationNotRunning && Messenger.Properties.Settings.Default.NoSplash == false)
+			if (isApplicationNotRunningYet && Messenger.Properties.Settings.Default.NoSplash == false)
 			{
 				screen = new SplashScreen("SplashScreen.png");
 				screen.Show(false);
@@ -77,15 +81,23 @@ namespace Messenger
 
 			Messenger.Properties.Settings.Default.AutoSaveSettings = true;
 
-			InitializeUccapi();
-			InitializeCommandBindings();
+			//MessengerCommands.Initialize();
+
+			//InitializeUccapi();
+			//InitializeCommandBindings();
 
 		}
 
 		private void Application_Startup(object sender, StartupEventArgs e)
 		{
-			if (isApplicationNotRunning)
+			if (isApplicationNotRunningYet)
 			{
+				Commands.Initialize();
+				MessengerCommands.Initialize();
+
+				InitializeUccapi();
+				InitializeCommandBindings();
+
 				this.CloseSplash();
 
 				new Contacts() { Visibility = (Messenger.Properties.Settings.Default.RunMinimized) ? Visibility.Hidden : Visibility.Visible, };
@@ -111,10 +123,15 @@ namespace Messenger
 			}
 			else
 			{
-				MessageBox.Show(AssemblyInfo.AssemblyProduct + " is already running."
-					+ "\r\n\r\nUse -userid<id> command line option if you need to start two or more instances of the application."
-					+ "\r\nExample: Messenger.exe -useriduser2",
-					AssemblyInfo.AssemblyProduct, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+				foreach (var x in Resources)
+				{
+					var y = x;
+				}
+
+				var message = Application.Current.FindResource("AlreadyRunning") as string;
+				message = message.Replace("{0}", AssemblyInfo.AssemblyProduct);
+
+				MessageBox.Show(message, AssemblyInfo.AssemblyProduct, MessageBoxButton.OK, MessageBoxImage.Exclamation);
 				this.Shutdown();
 			}
 		}

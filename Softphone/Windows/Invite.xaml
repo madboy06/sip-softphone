@@ -4,10 +4,10 @@
     xmlns:w="clr-namespace:Messenger.Windows"
     xmlns:m="clr-namespace:Messenger"
     xmlns:cm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-    Title="{Binding Title1}"
+    Title="AssemblyTitle - Incoming Call"
     WindowStartupLocation="CenterScreen" 
     Topmost="True" ShowInTaskbar="False"
-    Width="480" SizeToContent="Height" ResizeMode="NoResize" SnapsToDevicePixels="True">
+    Width="480" SizeToContent="Height" ResizeMode="NoResize" SnapsToDevicePixels="True" x:Uid="w6">
     <Window.CommandBindings>
         <CommandBinding Command="w:Commands.AcceptCall" Executed="AcceptCallBinding_Executed" CanExecute="AcceptCallBinding_CanExecute"></CommandBinding>
         <CommandBinding Command="w:Commands.RejectCall" Executed="RejectCallBinding_Executed" CanExecute="RejectCallBinding_CanExecute"></CommandBinding>
@@ -22,14 +22,14 @@
                 </CollectionViewSource.SortDescriptions>
             </CollectionViewSource>
         </StackPanel.Resources>
-        <Label>You got invite to audio-video chat. Do you Accept the incoming call?</Label>
+        <Label x:Uid="i1">You got invite to audio-video chat. Do you Accept the incoming call?</Label>
         <ListView MaxHeight="120" ItemsSource="{Binding Source={StaticResource sortedAvInvites}}" SelectedItem="{Binding CurrentAvInvite}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="From" DisplayMemberBinding="{Binding Inviter.Aor}"></GridViewColumn>
-                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Inviter.DisplayName}"></GridViewColumn>
-                    <GridViewColumn Header="Created" DisplayMemberBinding="{Binding Created}"></GridViewColumn>
-                    <GridViewColumn Header="State" DisplayMemberBinding="{Binding State}"></GridViewColumn>
+                    <GridViewColumn Header="From" DisplayMemberBinding="{Binding Inviter.Aor}" x:Uid="c1"></GridViewColumn>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Inviter.DisplayName}" x:Uid="c2"></GridViewColumn>
+                    <GridViewColumn Header="Created" DisplayMemberBinding="{Binding Created}" x:Uid="c3"></GridViewColumn>
+                    <GridViewColumn Header="State" DisplayMemberBinding="{Binding State}" x:Uid="c4"></GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

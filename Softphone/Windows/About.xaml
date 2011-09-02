@@ -4,7 +4,7 @@
     xmlns:w="clr-namespace:Messenger.Windows"
     xmlns:m="clr-namespace:Messenger"
     Title="About" SizeToContent="Height" Width="332" ResizeMode="NoResize" SnapsToDevicePixels="True"
-    WindowStartupLocation="CenterScreen">
+    WindowStartupLocation="CenterScreen" x:Uid="w3">
     <Window.CommandBindings>
         <CommandBinding Command="w:Commands.Ok" Executed="OkBinding_Executed"></CommandBinding>
     </Window.CommandBindings>
@@ -15,10 +15,10 @@
                 <TextBlock FontWeight="Bold" Text="{x:Static m:AssemblyInfo.AssemblyProduct}"></TextBlock>
                 <TextBlock FontWeight="Bold" Text="{x:Static m:AssemblyInfo.AssemblyVersion}" Margin="5,0,0,0"></TextBlock>
             </StackPanel>
-            <TextBlock Margin="0,10,0,0">Homepage:
+            <TextBlock Margin="0,10,0,0"><TextBlock x:Uid="tb1">Homepage:</TextBlock>
                 <Hyperlink Command="w:Commands.Homepage"><TextBlock Text="{x:Static m:AssemblyInfo.Homepage}"></TextBlock></Hyperlink></TextBlock>
             <TextBlock Margin="0,10,0,0" Text="{x:Static m:AssemblyInfo.AssemblyCopyright}">.</TextBlock>
-            <TextBlock>All rights reserved.</TextBlock>
+            <TextBlock x:Uid="tb2">All rights reserved.</TextBlock>
             <StackPanel Style="{StaticResource OkCancelPanel}">
                 <Button Command="w:Commands.Ok" IsDefault="True" Style="{StaticResource OkCancelButton}" Content="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"></Button>
             </StackPanel>
@@ -53,5 +53,5 @@
                 </Image.Triggers>
             </Image>
         </Canvas>
-    </Grid>    
+    </Grid>
 </w:WindowEx>

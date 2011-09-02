@@ -3,8 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:w="clr-namespace:Messenger.Windows"
     xmlns:m="clr-namespace:Messenger"
-    Title="{Binding Title1}" Width="390" SizeToContent="Height" SnapsToDevicePixels="True"
-    Topmost="True" Top="0" Left="0" ResizeMode="NoResize">
+    Title="AssemblyTitle - Exception" Width="390" SizeToContent="Height" SnapsToDevicePixels="True"
+    Topmost="True" Top="0" Left="0" ResizeMode="NoResize" x:Uid="w9">
     <Window.Resources>
         <ResourceDictionary>
             <Style x:Key="OkCancelPanel">
@@ -22,24 +22,24 @@
     </Window.Resources>
     <StackPanel Margin="5">
         <Label>
-            <TextBlock TextWrapping="Wrap"><TextBlock Text="{x:Static m:AssemblyInfo.AssemblyProduct}"></TextBlock> has encountered a problem and needs to close. We are sorry for incovenience.</TextBlock></Label>
+            <TextBlock TextWrapping="Wrap" x:Uid="i1" x:Name="message">AssemblyProduct has encountered a problem and needs to close. We are sorry for inconvenience.</TextBlock></Label>
         <Label>
-            <TextBlock TextWrapping="Wrap" FontWeight="Bold" Foreground="Red">To help us diagnose the cause of this error and improve this software, please send report to us.</TextBlock></Label>
+            <TextBlock TextWrapping="Wrap" FontWeight="Bold" Foreground="Red" x:Uid="i2">To help us diagnose the cause of this error and improve this software, please send report to us.</TextBlock></Label>
         <Label>
-            <TextBlock FontWeight="Bold">Thank you!</TextBlock></Label>
+            <TextBlock FontWeight="Bold" x:Uid="i3">Thank you!</TextBlock></Label>
         <StackPanel Visibility="{Binding Path=NotUploaded, Converter={StaticResource VisibilityConverter}}" Style="{StaticResource OkCancelPanel}">
-            <Button IsCancel="True" IsEnabled="{Binding Path=Uploading, Converter={StaticResource InverseConverter}}" Click="Cancel_Click">Don't Send</Button>
-            <Button IsDefault="True" IsEnabled="{Binding Path=Uploading, Converter={StaticResource InverseConverter}}" Click="Send_Click">Send Report</Button>
+            <Button IsCancel="True" IsEnabled="{Binding Path=Uploading, Converter={StaticResource InverseConverter}}" Click="Cancel_Click" x:Uid="b1">Don't Send</Button>
+            <Button IsDefault="True" IsEnabled="{Binding Path=Uploading, Converter={StaticResource InverseConverter}}" Click="Send_Click" x:Uid="b2">Send Report</Button>
         </StackPanel>
         <StackPanel Visibility="{Binding Path=Uploading, Converter={StaticResource VisibilityConverter}}">
-            <Label>Sending...</Label>
+            <Label x:Uid="i4">Sending...</Label>
             <ProgressBar Value="{Binding Path=UploadingProgress}" Height="10" Minimum="0" Maximum="100"></ProgressBar>
         </StackPanel>
         <StackPanel Visibility="{Binding Path=Uploaded, Converter={StaticResource VisibilityConverter}}" Style="{StaticResource OkCancelPanel}">
             <Button IsDefault="True" Click="Cancel_Click">Ok</Button>
         </StackPanel>
         <Label Visibility="{Binding Path=UploadResult, Converter={StaticResource VisibilityConverter}}">
-            <TextBlock>Finished: <TextBlock Text="{Binding Path=UploadResult}"></TextBlock></TextBlock>
+            <TextBlock><TextBlock x:Uid="i5">Finished: </TextBlock><TextBlock Text="{Binding Path=UploadResult}"></TextBlock></TextBlock>
         </Label>
     </StackPanel>
 </Window>

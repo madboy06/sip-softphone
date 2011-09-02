@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:w="clr-namespace:Messenger.Windows"
     WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
-    Title="Tracing for Troubleshooting Purposes" Width="390" SizeToContent="Height">
+    Title="Tracing for Troubleshooting Purposes" Width="390" SizeToContent="Height" x:Uid="w8">
     <Window.CommandBindings>
         <CommandBinding Command="w:Commands.Ok" Executed="OkBinding_Executed" CanExecute="OkBinding_CanExecute"></CommandBinding>
         <CommandBinding Command="w:Commands.Cancel" Executed="CancelBinding_Executed"></CommandBinding>
@@ -14,14 +14,14 @@
     </Window.CommandBindings>
     <!-- SOFTPHONE -->
     <StackPanel Style="{StaticResource MainPanel}">
-        <TextBlock Margin="0,0,0,10" TextWrapping="Wrap" TextAlignment="Justify">This window can be used to enable and disable tracing for debugging and troubleshooting purposes. Click here to read <Hyperlink Click="Privacy_Click">privacy note</Hyperlink>.</TextBlock>
-        <CheckBox IsChecked="{Binding Path=EnableTracing}">Enable tracing</CheckBox>
-        <Label>Tracing reports</Label>
+        <TextBlock Margin="0,0,0,10" TextWrapping="Wrap" TextAlignment="Justify" x:Uid="i1">This window can be used to enable and disable tracing for debugging and troubleshooting purposes. Click here to read <Hyperlink Click="Privacy_Click">privacy note</Hyperlink>.</TextBlock>
+        <CheckBox IsChecked="{Binding Path=EnableTracing}" x:Uid="i2">Enable tracing</CheckBox>
+        <Label x:Uid="i3">Tracing reports</Label>
         <ListView Name="list" MinHeight="60" MaxHeight="120" ItemsSource="{Binding Path=Reports}" SelectedValue="{Binding Path=SelectedReportFullName}" SelectedValuePath="FullName">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" Width="190" DisplayMemberBinding="{Binding Path=Name}"></GridViewColumn>
-                    <GridViewColumn Header="Modify Time" Width="140" DisplayMemberBinding="{Binding Path=LastWriteTime}"></GridViewColumn>
+                    <GridViewColumn Header="Name" Width="190" DisplayMemberBinding="{Binding Path=Name}" x:Uid="c1"></GridViewColumn>
+                    <GridViewColumn Header="Modify Time" Width="140" DisplayMemberBinding="{Binding Path=LastWriteTime}" x:Uid="c2"></GridViewColumn>
                 </GridView>
             </ListView.View>
             <ListView.ContextMenu>

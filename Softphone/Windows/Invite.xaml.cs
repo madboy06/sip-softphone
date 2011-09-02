@@ -33,6 +33,8 @@ namespace Messenger.Windows
 			DataContext = this;
 			InitializeComponent();
 
+			Title = Title.Replace("AssemblyTitle", AssemblyInfo.AssemblyTitle);
+
 			timer2 = new DispatcherTimer();
 			timer2.Tick += new EventHandler(Timer2_Tick);
 			timer2.Interval = new TimeSpan(0, 0, 0, 0, 500);
@@ -46,11 +48,6 @@ namespace Messenger.Windows
 			timer2.Stop();
 			StopPlaying();
 			CurrentAvInvite = null;
-		}
-
-		public string Title1
-		{
-			get { return string.Format(@"{0} - {1}", AssemblyInfo.AssemblyTitle, @"Incoming Call"); }
 		}
 
 		private void Timer2_Tick(object sender, EventArgs e)

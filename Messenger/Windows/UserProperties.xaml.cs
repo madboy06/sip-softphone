@@ -21,18 +21,19 @@ namespace Messenger.Windows
 	/// <summary>
 	/// Interaction logic for UserProperties.xaml
 	/// </summary>
-	public partial class UserProperties : Window
+	public partial class UserProperties : WindowEx
 	{
 		public UserProperties()
 		{
 			InitializeComponent();
+			Title = Title.Replace("AssemblyTitle", AssemblyInfo.AssemblyTitle);
 
 			this.CommandBindings.AddRange(Programme.Instance.CommandBindings);
 		}
 
-		private void Ok_Click(object sender, RoutedEventArgs e)
+		private void OkBinding_Executed(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
 		{
-			this.Close();
+			Close();
 		}
 	}
 }

@@ -84,8 +84,9 @@ namespace Messenger.Windows
 			PropertiesBinding.CopyToTarget(propertiesBinding);
 
 			DataContext = this;
-
 			InitializeComponent();
+
+			Title = Title.Replace("AssemblyTitle", AssemblyInfo.AssemblyTitle);
 		}
 
 		public string SignInAddress { get; set; }
@@ -103,11 +104,6 @@ namespace Messenger.Windows
 		}
 
 		public Object LoginParameter { get; set; }
-
-		public string Title1
-		{
-			get { return string.Format(@"{0} - {1}", AssemblyInfo.AssemblyTitle, @"Login"); }
-		}
 
 		#region Password Databinding
 

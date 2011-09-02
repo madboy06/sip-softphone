@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:w="clr-namespace:Messenger.Windows"
     Title="Add Contact" Width="300" SnapsToDevicePixels="True" WindowStartupLocation="CenterScreen"
-    SizeToContent="Height" ResizeMode="NoResize" Loaded="Window_Loaded" x:Name="RootElement">
+    SizeToContent="Height" ResizeMode="NoResize" Loaded="Window_Loaded" x:Name="RootElement" x:Uid="w7">
     <Window.Resources>
         <Style TargetType="{x:Type TextBox}">
             <Style.Triggers>
@@ -22,7 +22,7 @@
     </Window.BindingGroup>
     -->
     <StackPanel Style="{StaticResource MainPanel}">
-        <TextBlock>Uri:</TextBlock>
+        <TextBlock x:Uid="i1">Uri:</TextBlock>
         <TextBox x:Name="ur">
             <TextBox.Text>
                 <Binding Path="Uri" NotifyOnValidationError="True" UpdateSourceTrigger="PropertyChanged">
@@ -32,7 +32,7 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBlock>Group:</TextBlock>
+        <TextBlock x:Uid="i2">Group:</TextBlock>
         <TextBox MaxLength="31">
             <TextBox.Text>
                 <Binding Path="Group" NotifyOnValidationError="True" UpdateSourceTrigger="PropertyChanged">

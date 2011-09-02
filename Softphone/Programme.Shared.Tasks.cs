@@ -42,6 +42,52 @@ namespace Messenger
 
 		#endregion
 
+		#region GotoUrl, GotoEmail
+
+		private void GotoUrlBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+		{
+			if (e.Parameter != null && e.Parameter is string)
+			{
+				try
+				{
+					using (System.Diagnostics.Process process = new System.Diagnostics.Process())
+					{
+						process.StartInfo.FileName = e.Parameter as string;
+						process.StartInfo.UseShellExecute = true;
+						process.Start();
+					}
+				}
+				catch
+				{
+				}
+			}
+		}
+
+		private void GotoEmailBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+		{
+			if (e.Parameter != null && e.Parameter is string)
+			{
+				try
+				{
+					string email = e.Parameter as string;
+					if (email.StartsWith(@"mailto:", StringComparison.OrdinalIgnoreCase) == false)
+						email = @"mailto:" + email;
+
+					using (System.Diagnostics.Process process = new System.Diagnostics.Process())
+					{
+						process.StartInfo.FileName = email;
+						process.StartInfo.UseShellExecute = true;
+						process.Start();
+					}
+				}
+				catch
+				{
+				}
+			}
+		}
+
+		#endregion
+
 		#region About
 
 		private void AboutBinding_Executed(object sender, ExecutedRoutedEventArgs e)

@@ -44,11 +44,9 @@ namespace Messenger.Windows
 		{
 			DataContext = this;
 			InitializeComponent();
-		}
 
-		public string Title1
-		{
-			get { return string.Format(@"{0} - {1}", AssemblyInfo.AssemblyTitle, @"Exception"); }
+			Title = Title.Replace("AssemblyTitle", AssemblyInfo.AssemblyTitle);
+			message.Text = message.Text.Replace("AssemblyProduct", AssemblyInfo.AssemblyProduct);
 		}
 
 		public string Report

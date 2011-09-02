@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:w="clr-namespace:Messenger.Windows"
     Title="New Group" Width="300" SnapsToDevicePixels="True" WindowStartupLocation="CenterOwner"
-    SizeToContent="Height" ResizeMode="NoResize" >
+    SizeToContent="Height" ResizeMode="NoResize" x:Uid="w1">
     <Window.Resources>
         <Style TargetType="{x:Type TextBox}">
             <Style.Triggers>
@@ -14,7 +14,7 @@
         </Style>
     </Window.Resources>
     <StackPanel Style="{StaticResource MainPanel}">
-        <TextBlock>New Group:</TextBlock>
+        <TextBlock x:Uid="tb1">New Group:</TextBlock>
         <TextBox MaxLength="31">
             <TextBox.Text>
                 <Binding Path="Group" NotifyOnValidationError="True" UpdateSourceTrigger="PropertyChanged">
@@ -28,8 +28,8 @@
             </TextBox.Text>
         </TextBox>
         <StackPanel Style="{StaticResource OkCancelPanel}">
-            <Button IsCancel="True" Style="{StaticResource OkCancelButton}" Click="Cancel_Click">Cancel</Button>
-            <Button IsDefault="True" Name="ok" Style="{StaticResource OkCancelButton}" Click="Ok_Click">Ok</Button>
+            <Button IsCancel="True" Style="{StaticResource OkCancelButton}" Click="Cancel_Click" x:Uid="b1">Cancel</Button>
+            <Button IsDefault="True" Name="ok" Style="{StaticResource OkCancelButton}" Click="Ok_Click" x:Uid="b2">Ok</Button>
         </StackPanel>
     </StackPanel>
 </Window>

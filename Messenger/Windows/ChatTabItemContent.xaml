@@ -61,11 +61,11 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Label Grid.Column="0" Grid.Row="0">
-                <TextBlock>Receiving file (<TextBlock FontStyle="Italic" Text="{Binding Path=CurrentFile.FileName}"></TextBlock>) <TextBlock Text="{Binding Path=CurrentIndex}"></TextBlock> of <TextBlock Text="{Binding Path=MaxIndex}"></TextBlock>...</TextBlock>
+                <TextBlock><Span x:Uid="i1">Receiving file</Span> (<TextBlock FontStyle="Italic" Text="{Binding Path=CurrentFile.FileName}"></TextBlock>) <TextBlock Text="{Binding Path=CurrentIndex}"></TextBlock> <Span x:Uid="i2">of</Span> <TextBlock Text="{Binding Path=MaxIndex}"></TextBlock>...</TextBlock>
             </Label>
             <ProgressBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Margin="0,3,0,3" Height="9" Minimum="0" Maximum="100" Value="{Binding Path=TransferedPercents}"></ProgressBar>
-            <Button Grid.Column="1" Grid.Row="0" Name="SkipButton" MinWidth="50" Margin="4,2,0,2">Skip</Button>
-            <Button Grid.Column="2" Grid.Row="0" Name="CancelButton" MinWidth="50" Margin="4,2,0,2">Cancel</Button>
+            <Button Grid.Column="1" Grid.Row="0" Name="SkipButton" MinWidth="50" Margin="4,2,0,2" x:Uid="b1">Skip</Button>
+            <Button Grid.Column="2" Grid.Row="0" Name="CancelButton" MinWidth="50" Margin="4,2,0,2" x:Uid="b2">Cancel</Button>
         </Grid>
         <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
         <r:RichTextBoxEx Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Name="ChatViewer" IsReadOnly="True" VerticalScrollBarVisibility="Visible">
@@ -82,7 +82,7 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0">
-                <TextBlock>Sending file (<TextBlock FontStyle="Italic" Text="{Binding Path=CurrentFile.FileName}"></TextBlock>) <TextBlock Text="{Binding Path=CurrentIndex}"></TextBlock> of <TextBlock Text="{Binding Path=MaxIndex}"></TextBlock>...</TextBlock>
+                <TextBlock><Span x:Uid="i3">Sending file</Span> (<TextBlock FontStyle="Italic" Text="{Binding Path=CurrentFile.FileName}"></TextBlock>) <TextBlock Text="{Binding Path=CurrentIndex}"></TextBlock> <Span x:Uid="i4">of</Span> <TextBlock Text="{Binding Path=MaxIndex}"></TextBlock>...</TextBlock>
             </Label>
             <ProgressBar Grid.Column="1" Height="9" Minimum="0" Maximum="100" Value="{Binding Path=TransferedPercents}"></ProgressBar>
         </Grid>
@@ -97,7 +97,7 @@
         </r:RichTextBoxEx>
         <Button IsDefault="True" Grid.Row="4" Grid.Column="1" Name="SendButton" ToolTip="Send Message ( Ctrl+Enter )" IsEnabled="{Binding Path=IsRestoringSession, Converter={StaticResource InverseConverter}, Mode=OneWay}">
             <Button.Content>
-                <TextBlock>
+                <TextBlock x:Uid="b3">
                     <TextBlock.LayoutTransform>
                         <RotateTransform Angle="270"></RotateTransform>
                     </TextBlock.LayoutTransform>

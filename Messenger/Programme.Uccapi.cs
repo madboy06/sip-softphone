@@ -47,19 +47,22 @@ namespace Messenger
 
 		private void CleanupUccapi(int timeout, bool forceCleanup)
 		{
-			Endpoint.Enabled -= Endpoint_Enabled;
-			Endpoint.Disabled -= Endpoint_Disabled;
-			Endpoint.IncommingAvSession -= Endpoint_IncommingAvSession;
-			Endpoint.Presentities.CollectionChanged -= Presentities_CollectionChanged;
-			Endpoint.Presentities.ItemPropertyChanged -= Presentities_ItemPropertyChanged;
+			if (Endpoint != null)
+			{
+				Endpoint.Enabled -= Endpoint_Enabled;
+				Endpoint.Disabled -= Endpoint_Disabled;
+				Endpoint.IncommingAvSession -= Endpoint_IncommingAvSession;
+				Endpoint.Presentities.CollectionChanged -= Presentities_CollectionChanged;
+				Endpoint.Presentities.ItemPropertyChanged -= Presentities_ItemPropertyChanged;
 
-			if (Endpoint.IsEnabled)
-				Endpoint.BeginLogout();
+				if (Endpoint.IsEnabled)
+					Endpoint.BeginLogout();
 
-			WaitEndpointDisable(timeout);
+				WaitEndpointDisable(timeout);
 
-			if (forceCleanup)
-				Endpoint.Cleanup();
+				if (forceCleanup)
+					Endpoint.Cleanup();
+			}
 		}
 
 		private void EnableEndpoint(AvailabilityValues availabality)

@@ -35,6 +35,7 @@ namespace Messenger.Windows
 			this.Closed += Window_Closed;
 
 			InitializeComponent();
+			Title = Title.Replace("AssemblyTitle", AssemblyInfo.AssemblyTitle);
 		}
 
 		private void Window_Closed(object sender, EventArgs e)

@@ -106,11 +106,8 @@ namespace Messenger.Windows
 
 			DataContext = this;
 			InitializeComponent();
-		}
 
-		public string Title1
-		{
-			get { return string.Format(@"{0} - {1}", AssemblyInfo.AssemblyTitle, @"Preferences"); }
+			Title = Title.Replace("AssemblyTitle", AssemblyInfo.AssemblyTitle);
 		}
 
 		public bool LoginAtStartup { get; set; }

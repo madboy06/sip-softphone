@@ -44,11 +44,8 @@ namespace Messenger.Windows
 			displayName = displayName1;
 
 			InitializeComponent();
-		}
 
-		public string Title1
-		{
-			get { return string.Format(@"{0} - {1}", AssemblyInfo.AssemblyTitle, @"Select Files"); }
+			Title = Title.Replace("AssemblyTitle", AssemblyInfo.AssemblyTitle);
 		}
 
 		public IEnumerable<TransferItemView> Files

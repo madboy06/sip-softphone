@@ -50,6 +50,8 @@ namespace Messenger.Windows
 
 			DataContext = this;
 			InitializeComponent();
+
+			Title = Title.Replace("AssemblyTitle", AssemblyInfo.AssemblyTitle);
 		}
 
 		private void Disconnect_Closed(object sender, EventArgs e)
@@ -60,11 +62,6 @@ namespace Messenger.Windows
 
 		public string Error { get; private set; }
 		public bool RestoreEnabled { get; private set; }
-
-		public string Title1
-		{
-			get { return string.Format(@"{0} - {1}", AssemblyInfo.AssemblyTitle, @"Disconnected"); }
-		}
 
 		private string AuthModeToString(AuthenticationMode? authMode)
 		{
