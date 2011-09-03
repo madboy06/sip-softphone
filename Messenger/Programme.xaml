@@ -14,7 +14,7 @@
                 <ResourceDictionary Source="Icons/PresenceImages.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
             <!-- BEGIN: STRINGS -->
-            <system:String x:Key="AlreadyRunning" x:Uid="msg1" xml:space="preserve">{0} is already running.&#10;&#10;Use -userid[id] command line option if you need to start two or more instances of the application.&#10;Example: Messenger.exe -useriduser2</system:String>
+            <system:String x:Key="AlreadyRunning" x:Uid="msg1" xml:space="preserve">AssemblyProduct is already running.&#10;&#10;Use -userid[id] command line option if you need to start two or more instances of the application.&#10;Example: Messenger.exe -useriduser2</system:String>
             <!-- Commands.cs -->
             <system:String x:Key="Ok" x:Uid="c1">Ok</system:String>
             <system:String x:Key="Apply" x:Uid="c2">Apply</system:String>

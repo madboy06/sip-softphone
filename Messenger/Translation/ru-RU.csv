@@ -1,4 +1,4 @@
-﻿Messenger.g.en-US.resources:programme.baml,msg1:System.String.$Content,None,True,True,,"{0} уже выполняется.
+﻿Messenger.g.en-US.resources:programme.baml,msg1:System.String.$Content,None,True,True,,"AssemblyProduct уже выполняется.
 
 Используйте команду -userid[id] если нужно запустить два или больше экземпляров приложения.
 Пример: Messenger.exe -useriduser2"

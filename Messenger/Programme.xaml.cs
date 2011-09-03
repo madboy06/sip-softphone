@@ -129,7 +129,7 @@ namespace Messenger
 				}
 
 				var message = Application.Current.FindResource("AlreadyRunning") as string;
-				message = message.Replace("{0}", AssemblyInfo.AssemblyProduct);
+				message = message.Replace("AssemblyProduct", AssemblyInfo.AssemblyProduct);
 
 				MessageBox.Show(message, AssemblyInfo.AssemblyProduct, MessageBoxButton.OK, MessageBoxImage.Exclamation);
 				this.Shutdown();
