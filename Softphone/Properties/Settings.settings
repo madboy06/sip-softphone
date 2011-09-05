@@ -14,9 +14,6 @@
     <Setting Name="Height" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">430</Value>
     </Setting>
-    <Setting Name="SignInAddress" Type="System.String" Scope="User">
-      <Value Profile="(Default)">jdoe@officesip.local</Value>
-    </Setting>
     <Setting Name="AuthKerberosNtlm" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>

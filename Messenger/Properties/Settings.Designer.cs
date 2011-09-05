@@ -73,18 +73,6 @@ namespace Messenger.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("jdoe@officesip.local")]
-        public string SignInAddress {
-            get {
-                return ((string)(this["SignInAddress"]));
-            }
-            set {
-                this["SignInAddress"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool AuthKerberosNtlm {
             get {
