@@ -135,8 +135,20 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_F85C91D3A4B04555941174AFF8A585F5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_09A7773915D14045A883F81631B67813"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F85C91D3A4B04555941174AFF8A585F5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -493,7 +505,7 @@
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_9EEF2E9D917A4D629572EE0AF3768CC7"
-            "Condition" = "8:SystemLanguageID=\"ru-RU\""
+            "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
             "ReadOnly" = "11:FALSE"
@@ -589,6 +601,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F85C91D3A4B04555941174AFF8A585F5"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Messenger.resources, Version=2.2.0.0, Culture=de-DE, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_F85C91D3A4B04555941174AFF8A585F5"
+                    {
+                    "Name" = "8:Messenger.resources.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\Messenger\\bin\\Release\\de-DE\\Messenger.resources.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_9708644268A64E579BB065D915C01C84"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -627,11 +670,22 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_9708644268A64E579BB065D915C01C84"
+                    {
+                    "Name" = "8:de-DE"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:SystemLanguageID=\"de-DE\""
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_F1420BD33BEF425CB8375B839BF2A5F1"
+                        "Folders"
+                        {
+                        }
+                    }
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_9EEF2E9D917A4D629572EE0AF3768CC7"
                     {
                     "Name" = "8:ru-RU"
                     "AlwaysCreate" = "11:FALSE"
-                    "Condition" = "8:"
+                    "Condition" = "8:SystemLanguageID=\"ru-RU\""
                     "Transitive" = "11:FALSE"
                     "Property" = "8:_5D86115403F74534BE212630A5B2727F"
                         "Folders"
@@ -1230,7 +1284,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_09A7773915D14045A883F81631B67813"
             {
-            "SourcePath" = "8:..\\RichTextBoxEx\\obj\\Release\\RichTextBoxEx.dll"
+            "SourcePath" = "8:..\\RichTextBoxEx\\obj\\Debug\\RichTextBoxEx.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_F7C9915F677E4FF9ACC5B4CE6C815120"
@@ -1258,7 +1312,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_58EBE7E03D14448996A2F271C7549322"
             {
-            "SourcePath" = "8:..\\Messenger\\obj\\Release\\Messenger.exe"
+            "SourcePath" = "8:..\\Messenger\\obj\\Debug\\Messenger.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_F7C9915F677E4FF9ACC5B4CE6C815120"

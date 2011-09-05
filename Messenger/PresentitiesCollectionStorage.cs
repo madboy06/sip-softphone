@@ -13,6 +13,7 @@ namespace Messenger
 		: ApplicationSettingsBase
 	{
 		[UserScopedSettingAttribute()]
+		[global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
 		public PresentitiesCollectionXmlSerializer PresentitiesSerializer
 		{
 			get

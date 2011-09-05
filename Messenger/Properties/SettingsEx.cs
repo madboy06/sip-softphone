@@ -75,6 +75,7 @@ namespace Messenger.Properties
 
 		[global::System.Configuration.UserScopedSettingAttribute()]
 		[global::System.Configuration.DefaultSettingValueAttribute("")]
+		[global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
 		public string SignInAddress
 		{
 			get
