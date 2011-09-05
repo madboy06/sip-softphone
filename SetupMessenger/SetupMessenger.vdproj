@@ -123,7 +123,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D84F3E5318B631052F795D38A2D426BB"
+        "MsmKey" = "8:_CA41F0250C916687AC3BAD3338B4EFD3"
         "OwnerKey" = "8:_58EBE7E03D14448996A2F271C7549322"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -148,6 +148,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_CA41F0250C916687AC3BAD3338B4EFD3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_F85C91D3A4B04555941174AFF8A585F5"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -161,12 +167,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_58EBE7E03D14448996A2F271C7549322"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D84F3E5318B631052F795D38A2D426BB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -244,7 +244,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Release\\officesip-messenger-2.1.msi"
+        "OutputFilename" = "8:Release\\officesip-messenger-2.2.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -505,7 +505,7 @@
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_9EEF2E9D917A4D629572EE0AF3768CC7"
-            "Condition" = "8:"
+            "Condition" = "8:SystemLanguageID=1049"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
             "ReadOnly" = "11:FALSE"
@@ -550,14 +550,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D84F3E5318B631052F795D38A2D426BB"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_CA41F0250C916687AC3BAD3338B4EFD3"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:RichTextBoxEx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_D84F3E5318B631052F795D38A2D426BB"
+                    "_CA41F0250C916687AC3BAD3338B4EFD3"
                     {
                     "Name" = "8:RichTextBoxEx.dll"
                     "Attributes" = "3:512"
@@ -618,7 +618,7 @@
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_9708644268A64E579BB065D915C01C84"
-            "Condition" = "8:"
+            "Condition" = "8:SystemLanguageID=1031"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
             "ReadOnly" = "11:FALSE"
@@ -674,7 +674,7 @@
                     {
                     "Name" = "8:de-DE"
                     "AlwaysCreate" = "11:FALSE"
-                    "Condition" = "8:SystemLanguageID=\"de-DE\""
+                    "Condition" = "8:"
                     "Transitive" = "11:FALSE"
                     "Property" = "8:_F1420BD33BEF425CB8375B839BF2A5F1"
                         "Folders"
@@ -685,7 +685,7 @@
                     {
                     "Name" = "8:ru-RU"
                     "AlwaysCreate" = "11:FALSE"
-                    "Condition" = "8:SystemLanguageID=\"ru-RU\""
+                    "Condition" = "8:"
                     "Transitive" = "11:FALSE"
                     "Property" = "8:_5D86115403F74534BE212630A5B2727F"
                         "Folders"
@@ -722,7 +722,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:OfficeSIP Messenger"
         "ProductCode" = "8:{500A7EF0-FFAB-41AD-AEF3-3550045CB893}"
-        "PackageCode" = "8:{A980DF12-25AA-4557-AEC2-606D192F432E}"
+        "PackageCode" = "8:{BF799016-9149-46C9-908F-DD72576F12B1}"
         "UpgradeCode" = "8:{B56F51D7-76C4-4461-B5E1-2AD8FED4B18B}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
@@ -744,7 +744,7 @@
         "UseSystemSearchPath" = "11:TRUE"
         "TargetPlatform" = "3:0"
         "PreBuildEvent" = "8:"
-        "PostBuildEvent" = "8:\r\n\"$(ProjectDir)Msi2Exe\\7z.exe\" a \"$(ProjectDir)$(Configuration)\\officesip.7z\" \"$(BuiltOuputPath)\r\"\r\n\n\r\nCOPY /b \"$(ProjectDir)Msi2Exe\\7zS.sfx\"+\"$(ProjectDir)Msi2Exe\\config.txt\"+\"$(ProjectDir)$(Configuration)\\officesip.7z\" \"$(ProjectDir)$(Configuration)\\officesip-messenger-2.1.exe\"\r\n\r\nDEL \"$(ProjectDir)$(Configuration)\\officesip.7z\"\n\r\n"
+        "PostBuildEvent" = "8:\r\n\"$(ProjectDir)Msi2Exe\\7z.exe\" a \"$(ProjectDir)$(Configuration)\\officesip.7z\" \"$(BuiltOuputPath)\r\"\r\n\n\r\nCOPY /b \"$(ProjectDir)Msi2Exe\\7zS.sfx\"+\"$(ProjectDir)Msi2Exe\\config.txt\"+\"$(ProjectDir)$(Configuration)\\officesip.7z\" \"$(ProjectDir)$(Configuration)\\officesip-messenger-2.2.exe\"\r\n\r\nDEL \"$(ProjectDir)$(Configuration)\\officesip.7z\"\n\r\n"
         "RunPostBuildEvent" = "3:0"
         }
         "Registry"
@@ -1284,7 +1284,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_09A7773915D14045A883F81631B67813"
             {
-            "SourcePath" = "8:..\\RichTextBoxEx\\obj\\Debug\\RichTextBoxEx.dll"
+            "SourcePath" = "8:..\\RichTextBoxEx\\obj\\Release\\RichTextBoxEx.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_F7C9915F677E4FF9ACC5B4CE6C815120"
@@ -1312,7 +1312,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_58EBE7E03D14448996A2F271C7549322"
             {
-            "SourcePath" = "8:..\\Messenger\\obj\\Debug\\Messenger.exe"
+            "SourcePath" = "8:..\\Messenger\\obj\\Release\\Messenger.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_F7C9915F677E4FF9ACC5B4CE6C815120"

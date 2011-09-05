@@ -1,6 +1,6 @@
-Messenger.g.en-US.resources:programme.baml,msg1:System.String.$Content,None,True,True,,"AssemblyProduct is already running.
-Use -userid[id] command line option if you need to start two or more instances of the application.
-Example: Messenger.exe -useriduser2"
+Messenger.g.en-US.resources:programme.baml,msg1:System.String.$Content,None,True,True,,"AssemblyProduct rennt bereits.
+Benützen Sie -userid[id] als Paramater wenn sie mehrer Instanzen starten wollen.
+Beispiel: Messenger.exe -useriduser2"
 Messenger.g.en-US.resources:programme.baml,c1:System.String.$Content,None,True,True,,OK
 Messenger.g.en-US.resources:programme.baml,c2:System.String.$Content,None,True,True,,Übernehmen
 Messenger.g.en-US.resources:programme.baml,c3:System.String.$Content,None,True,True,,Abbrechen
@@ -55,7 +55,7 @@ Messenger.g.en-US.resources:newgroup.baml,w1:System.Windows.Window.Title,Title,T
 Messenger.g.en-US.resources:newgroup.baml,tb1:System.Windows.Controls.TextBlock.$Content,Text,True,True,,Neue Gruppe:
 Messenger.g.en-US.resources:newgroup.baml,b1:System.Windows.Controls.Button.$Content,Button,True,True,,Abbrechen
 Messenger.g.en-US.resources:newgroup.baml,b2:System.Windows.Controls.Button.$Content,Button,True,True,,OK
-Messenger.g.en-US.resources:preferences.baml,w2:System.Windows.Window.Title,Title,True,True,,AssemblyTitle - Preferences
+Messenger.g.en-US.resources:preferences.baml,w2:System.Windows.Window.Title,Title,True,True,,AssemblyTitle - Einstellungen
 Messenger.g.en-US.resources:preferences.baml,i1:System.Windows.Controls.CheckBox.$Content,CheckBox,True,True,,Splash Screen beim Starten nicht anzeigen
 Messenger.g.en-US.resources:preferences.baml,i2:System.Windows.Controls.CheckBox.$Content,CheckBox,True,True,,Beim Schliessen minimieren
 Messenger.g.en-US.resources:preferences.baml,i3:System.Windows.Controls.CheckBox.$Content,CheckBox,True,True,,Programm minimiert starten
@@ -71,7 +71,7 @@ Messenger.g.en-US.resources:soundfilebox.baml,b1:System.Windows.Controls.Button.
 Messenger.g.en-US.resources:soundfilebox.baml,b2:System.Windows.Controls.Button.$Content,Button,True,True,,Auswählen
 Messenger.g.en-US.resources:about.baml,w3:System.Windows.Window.Title,Title,True,True,,Über
 Messenger.g.en-US.resources:about.baml,tb1:System.Windows.Controls.TextBlock.$Content,Text,True,True,,Homepage:
-Messenger.g.en-US.resources:about.baml,tb2:System.Windows.Controls.TextBlock.$Content,Text,True,True,,All rights reserved.
+Messenger.g.en-US.resources:about.baml,tb2:System.Windows.Controls.TextBlock.$Content,Text,True,True,,Alle Rechte vorbehalten.
 Messenger.g.en-US.resources:findcontact.baml,w4:System.Windows.Window.Title,Title,True,True,,Kontakt suchen
 Messenger.g.en-US.resources:findcontact.baml,i1:System.Windows.Controls.Label.$Content,Label,True,True,Nach Name finden:
 Messenger.g.en-US.resources:findcontact.baml,i2:System.Windows.Controls.Label.$Content,Label,True,True,,Nach Email finden:
@@ -80,7 +80,7 @@ Messenger.g.en-US.resources:findcontact.baml,b2:System.Windows.Controls.Button.$
 Messenger.g.en-US.resources:findcontact.baml,b3:System.Windows.Controls.Button.$Content,Button,True,True,,Abbrechen
 Messenger.g.en-US.resources:findcontact.baml,i3:System.Windows.Controls.Label.$Content,Label,True,True,,Suche...
 Messenger.g.en-US.resources:findcontact.baml,i4:System.Windows.Controls.TextBlock.$Content,Text,True,True,,Results#i5;:
-Messenger.g.en-US.resources:findcontact.baml,i5:System.Windows.Controls.TextBlock.$Content,Text,True,True,,(more available)
+Messenger.g.en-US.resources:findcontact.baml,i5:System.Windows.Controls.TextBlock.$Content,Text,True,True,,(mehr verfügbar)
 Messenger.g.en-US.resources:findcontact.baml,i6:System.Windows.Controls.Button.$Content,Button,True,True,,Hinzufügen
 Messenger.g.en-US.resources:findcontact.baml,c1:System.Windows.Controls.GridViewColumn.Header,None,True,True,,Name
 Messenger.g.en-US.resources:findcontact.baml,c2:System.Windows.Controls.GridViewColumn.Header,None,True,True,,Uri
@@ -92,9 +92,9 @@ Messenger.g.en-US.resources:findcontact.baml,c7:System.Windows.Controls.GridView
 Messenger.g.en-US.resources:findcontact.baml,c8:System.Windows.Controls.GridViewColumn.Header,None,True,True,,Staat
 Messenger.g.en-US.resources:findcontact.baml,c9:System.Windows.Controls.GridViewColumn.Header,None,True,True,,Land
 Messenger.g.en-US.resources:findcontact.baml,c10:System.Windows.Controls.GridViewColumn.Header,None,True,True,,Email
-Messenger.g.en-US.resources:login.baml,w5:System.Windows.Window.Title,Title,True,True,,AssemblyTitle - Login
+Messenger.g.en-US.resources:login.baml,w5:System.Windows.Window.Title,Title,True,True,,AssemblyTitle - Anmeldung
 Messenger.g.en-US.resources:login.baml,i1:System.Windows.Controls.Label.$Content,Label,True,True,,Anmelde Adresse:
-"Messenger.g.en-US.resources:login.baml,i2:System.Windows.Controls.CheckBox.$Content,CheckBox,True,True,,Aktuelle Benutzeranmeldung verwenden
+Messenger.g.en-US.resources:login.baml,i2:System.Windows.Controls.CheckBox.$Content,CheckBox,True,True,,Aktuelle Benutzeranmeldung verwenden
 Messenger.g.en-US.resources:login.baml,i3:System.Windows.Controls.CheckBox.$Content,CheckBox,True,True,,Folgenden Benutzernamen und Kennwort verwenden
 Messenger.g.en-US.resources:login.baml,i4:System.Windows.Controls.Label.$Content,Label,True,True,,Benutzername:
 Messenger.g.en-US.resources:login.baml,i5:System.Windows.Controls.Label.$Content,Label,True,True,,Passwort:
@@ -117,13 +117,13 @@ Messenger.g.en-US.resources:ucctracing.baml,c1:System.Windows.Controls.GridViewC
 Messenger.g.en-US.resources:ucctracing.baml,c2:System.Windows.Controls.GridViewColumn.Header,None,True,True,,Bearbeitet am
 Messenger.g.en-US.resources:crash2.baml,w9:System.Windows.Window.Title,Title,True,True,,AssemblyTitle - Exception
 Messenger.g.en-US.resources:crash2.baml,i1:System.Windows.Controls.TextBlock.$Content,Text,True,True,,AssemblyProduct has encountered a problem and needs to close. We are sorry for inconvenience.
-"Messenger.g.en-US.resources:crash2.baml,i2:System.Windows.Controls.TextBlock.$Content,Text,True,True,,"Um das Programm besser zu machen senden sie uns diesen Bericht"
+Messenger.g.en-US.resources:crash2.baml,i2:System.Windows.Controls.TextBlock.$Content,Text,True,True,,"Um das Programm besser zu machen senden sie uns diesen Bericht"
 Messenger.g.en-US.resources:crash2.baml,i3:System.Windows.Controls.TextBlock.$Content,Text,True,True,,Danke!
 Messenger.g.en-US.resources:crash2.baml,b1:System.Windows.Controls.Button.$Content,Button,True,True,,Don&apos;t Send
 Messenger.g.en-US.resources:crash2.baml,b2:System.Windows.Controls.Button.$Content,Button,True,True,,Report senden
 Messenger.g.en-US.resources:crash2.baml,i4:System.Windows.Controls.Label.$Content,Label,True,True,,Sende...
 Messenger.g.en-US.resources:crash2.baml,i5:System.Windows.Controls.TextBlock.$Content,Text,True,True,,Fertig:
-Messenger.g.en-US.resources:disconnect.baml,w10:System.Windows.Window.Title,Title,True,True,,AssemblyTitle - Disconnected
+Messenger.g.en-US.resources:disconnect.baml,w10:System.Windows.Window.Title,Title,True,True,,AssemblyTitle - Getrennt
 Messenger.g.en-US.resources:disconnect.baml,i1:System.Windows.Controls.Label.$Content,Label,True,True,,Verbindung zum Server verloren:
 Messenger.g.en-US.resources:disconnect.baml,i2:System.Windows.Documents.Span.$Content,Text,True,True,,Die Verbindung wird automatisch hergestellt nach
 Messenger.g.en-US.resources:disconnect.baml,i3:System.Windows.Documents.Span.$Content,Text,True,True,,Sekunden.
@@ -136,7 +136,7 @@ Messenger.g.en-US.resources:chattabitemcontent.baml,b2:System.Windows.Controls.B
 Messenger.g.en-US.resources:chattabitemcontent.baml,i3:System.Windows.Documents.Span.$Content,Text,True,True,,Sende Datei
 Messenger.g.en-US.resources:chattabitemcontent.baml,i4:System.Windows.Documents.Span.$Content,Text,True,True,,von
 Messenger.g.en-US.resources:chattabitemcontent.baml,b3:System.Windows.Controls.TextBlock.Text,Text,True,True,,Senden
-Messenger.g.en-US.resources:userproperties.baml,w13:System.Windows.Window.Title,Title,True,True,,AssemblyTitle - User Properties
+Messenger.g.en-US.resources:userproperties.baml,w13:System.Windows.Window.Title,Title,True,True,,AssemblyTitle - Benutzer Eigenschaften
 Messenger.g.en-US.resources:userproperties.baml,i1:System.Windows.Controls.Label.$Content,Label,True,True,,Emails:
 Messenger.g.en-US.resources:userproperties.baml,i2:System.Windows.Controls.Label.$Content,Label,True,True,,Telefonnummern:
 Messenger.g.en-US.resources:userproperties.baml,i3:System.Windows.Controls.Label.$Content,Label,True,True,,Fax:
@@ -151,7 +151,7 @@ Messenger.g.en-US.resources:programme.baml,st5:System.String.$Content,None,True,
 Messenger.g.en-US.resources:programme.baml,st6:System.String.$Content,None,True,True,,Nicht stören
 Messenger.g.en-US.resources:programme.baml,st7:System.String.$Content,None,True,True,,Als offline anzeigen
 Messenger.g.en-US.resources:programme.baml,st8:System.String.$Content,None,True,True,,Offline
-Messenger.g.en-US.resources:selectfiles.baml,w14:System.Windows.Window.Title,Title,True,True,,AssemblyTitle - Select Files
+Messenger.g.en-US.resources:selectfiles.baml,w14:System.Windows.Window.Title,Title,True,True,,AssemblyTitle - Ausgewählte Dateien
 Messenger.g.en-US.resources:selectfiles.baml,i1_1:System.Windows.Documents.Span.$Content,Text,True,True,,Der Benutzer
 Messenger.g.en-US.resources:selectfiles.baml,i1_2:System.Windows.Documents.Span.$Content,Text,True,True,,"sendet Dateien an Sie, wollen Sie akzeptieren?"
 Messenger.g.en-US.resources:selectfiles.baml,c1:System.Windows.Controls.GridViewColumn.Header,None,True,True,,Akzeptieren
@@ -161,5 +161,5 @@ Messenger.g.en-US.resources:selectfiles.baml,c4:System.Windows.Controls.GridView
 Messenger.g.en-US.resources:selectfiles.baml,i2:System.Windows.Controls.Label.$Content,Label,True,True,,Download Ordner:
 Messenger.g.en-US.resources:selectfiles.baml,b1:System.Windows.Controls.Button.$Content,Button,True,True,,Auswählen
 Messenger.g.en-US.resources:selectfiles.baml,b2:System.Windows.Controls.Button.$Content,Button,True,True,,Akzeptieren
-Messenger.g.en-US.resources:selectfiles.baml,b3:System.Windows.Controls.Button.$Content,Button,True,True,,Reject
+Messenger.g.en-US.resources:selectfiles.baml,b3:System.Windows.Controls.Button.$Content,Button,True,True,,Nicht annehmen
 Messenger.g.en-US.resources:programme.baml,buttonWidth:System.Windows.Setter.Value,None,False,True,,70
