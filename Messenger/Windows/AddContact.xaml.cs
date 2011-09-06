@@ -52,15 +52,29 @@ namespace Messenger.Windows
 			}
 		}
 
-		private void Cancel_Click(object sender, RoutedEventArgs e)
+		//private void Cancel_Click(object sender, RoutedEventArgs e)
+		//{
+		//    this.Close();
+		//}
+
+		//private void OkBinding_Executed(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
+		//{
+		//    Close();
+		//}
+
+		//private void OkBinding_CanExecute(object sender, System.Windows.Input.CanExecuteRoutedEventArgs e)
+		//{
+		//}
+
+		private void CancelBinding_Executed(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
 		{
-			this.Close();
+			Close();
 		}
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
 			//(this.DataContext as Result).Uri = @"123";
-//			BindingOperations.GetBindingExpression(ur, TextBox.TextProperty).UpdateSource();
+			//			BindingOperations.GetBindingExpression(ur, TextBox.TextProperty).UpdateSource();
 		}
 	}
 }

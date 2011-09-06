@@ -4,6 +4,12 @@
     xmlns:w="clr-namespace:Messenger.Windows"
     Title="Add Contact" Width="300" SnapsToDevicePixels="True" WindowStartupLocation="CenterScreen"
     SizeToContent="Height" ResizeMode="NoResize" Loaded="Window_Loaded" x:Name="RootElement" x:Uid="w7">
+    <Window.CommandBindings>
+        <!--
+        <CommandBinding Command="w:Commands.Ok" Executed="OkBinding_Executed" CanExecute="OkBinding_CanExecute"></CommandBinding>
+        -->
+        <CommandBinding Command="w:Commands.Cancel" Executed="CancelBinding_Executed"></CommandBinding>
+    </Window.CommandBindings>
     <Window.Resources>
         <Style TargetType="{x:Type TextBox}">
             <Style.Triggers>
@@ -48,7 +54,11 @@
             ElementName=RootElement}"/>
         -->
         <StackPanel Style="{StaticResource OkCancelPanel}">
+            <Button Command="w:Commands.Cancel" IsCancel="True" Style="{StaticResource OkCancelButton}" Content="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"></Button>
+            <!--
+            <Button Command="w:Commands.Ok" Name="ok" IsDefault="True" Style="{StaticResource OkCancelButton}" Content="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"></Button>
             <Button IsCancel="True" Style="{StaticResource OkCancelButton}" Click="Cancel_Click">Cancel</Button>
+            -->
             <Button IsDefault="True" Name="ok" Style="{StaticResource OkCancelButton}" Click="Ok_Click">Ok</Button>
         </StackPanel>
     </StackPanel>
