@@ -17,6 +17,7 @@ namespace Messenger.Windows
 		public static RoutedUICommand Ok { get; private set; }
 		public static RoutedUICommand Apply { get; private set; }
 		public static RoutedUICommand Cancel { get; private set; }
+		public static RoutedUICommand PhoneDigit { get; private set; }
 		public static RoutedUICommand About { get; private set; }
 		public static RoutedUICommand Homepage { get; private set; }
 		public static RoutedUICommand Preferences { get; private set; }
@@ -91,6 +92,7 @@ namespace Messenger.Windows
 				Ok = CreateRoutedUICommand(@"Ok", typeof(Commands));
 				Apply = CreateRoutedUICommand(@"Apply", typeof(Commands));
 				Cancel = CreateRoutedUICommand(@"Cancel", typeof(Commands));
+				PhoneDigit = CreateRoutedUICommand(@"PhoneDigit", typeof(Commands));
 				About = CreateRoutedUICommand("About", typeof(Commands));
 				Homepage = CreateRoutedUICommand("Homepage", typeof(Commands));
 				Preferences = CreateRoutedUICommand("Preferences", typeof(Commands));

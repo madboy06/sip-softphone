@@ -93,7 +93,7 @@ namespace Messenger.Properties
 					if (string.IsNullOrEmpty(domain))
 						domain = "officesip.local";
 
-					var user = Environment.UserName;
+					var user = Environment.UserName.ToLower();
 					if (string.IsNullOrEmpty(user))
 						user = "jdoe";
 

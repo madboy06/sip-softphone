@@ -34,9 +34,23 @@ namespace Messenger.Windows
 				text = Application.Current.Resources[name] as string;
 
 			if (text == null)
-				text = name;
+				text = AddSpace(name);
 
 			return text;
+		}
+
+		public static string AddSpace(string source)
+		{
+			var result = string.Empty;
+
+			foreach (var c in source)
+			{
+				if (char.IsUpper(c))
+					result += ' ';
+				result += c;
+			}
+
+			return result;
 		}
 
 		public static InputGestureCollection CreateGesture(Key key, ModifierKeys modifiers)

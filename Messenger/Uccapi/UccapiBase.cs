@@ -44,7 +44,11 @@ namespace Uccapi
 
 		protected void OnPropertyChanged(String property)
 		{
-			OnPropertyChanged(new PropertyChangedEventArgs(Helpers.StriptPropertyName(property)));
+			try
+			{
+				OnPropertyChanged(new PropertyChangedEventArgs(Helpers.StriptPropertyName(property)));
+			}
+			catch { }
 		}
 
 		protected void OnPropertyChanged(PropertyChangedEventArgs eventArgs)

@@ -52,8 +52,7 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Office.Interop.UccApi, Version=2.0.6362.67, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Microsoft.Office.Interop.UccApi, Version=2.0.6362.123, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
       <HintPath>..\Messenger\Microsoft.Office.Interop.UccApi.Dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Windows.Design, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
@@ -356,7 +355,7 @@
   <ItemGroup>
     <Content Include="..\Messenger\RTMPLTFM.dll">
       <Link>RTMPLTFM.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="..\Messenger\Sounds\call.wav">
       <Link>Sounds\call.wav</Link>
@@ -365,7 +364,7 @@
     <None Include="app.config" />
     <Content Include="..\Messenger\UccApi.dll">
       <Link>UccApi.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="..\Notice.txt">
       <Link>Notice.txt</Link>
