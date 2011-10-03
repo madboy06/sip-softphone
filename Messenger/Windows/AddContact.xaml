@@ -59,7 +59,7 @@
             <Button Command="w:Commands.Ok" Name="ok" IsDefault="True" Style="{StaticResource OkCancelButton}" Content="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"></Button>
             <Button IsCancel="True" Style="{StaticResource OkCancelButton}" Click="Cancel_Click">Cancel</Button>
             -->
-            <Button IsDefault="True" Name="ok" Style="{StaticResource OkCancelButton}" Click="Ok_Click">Ok</Button>
+            <Button IsDefault="True" Name="ok" Style="{StaticResource OkCancelButton}" Click="Ok_Click" Content="{Binding Source={x:Static w:Commands.Ok}, Path=Text}"></Button>
         </StackPanel>
     </StackPanel>
 </Window>
