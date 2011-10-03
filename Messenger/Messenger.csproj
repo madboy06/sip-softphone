@@ -415,6 +415,9 @@
     <LocBamlCsv Include="Translation\de-DE.csv">
       <Culture>de-DE</Culture>
     </LocBamlCsv>
+    <LocBamlCsv Include="Translation\tr-TR.csv">
+      <Culture>tr-TR</Culture>
+    </LocBamlCsv>
     <Content Include="UccApi.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

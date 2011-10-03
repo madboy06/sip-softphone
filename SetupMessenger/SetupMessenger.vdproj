@@ -33,6 +33,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_1451FDF630F44F799E6DBBEE453DCD12"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_1A18148EFD3148E5BF5F14B0EABF6FF3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -148,7 +154,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_CA41F0250C916687AC3BAD3338B4EFD3"
+        "OwnerKey" = "8:_1451FDF630F44F799E6DBBEE453DCD12"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -167,6 +173,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_58EBE7E03D14448996A2F271C7549322"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_CA41F0250C916687AC3BAD3338B4EFD3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -328,7 +340,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.Office.Interop.UccApi, Version=2.0.6362.67, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:Microsoft.Office.Interop.UccApi, Version=2.0.6362.123, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_05B4DF295DC830F32CC128F4413ACD9A"
@@ -353,6 +365,37 @@
             "Register" = "3:1"
             "Exclude" = "11:TRUE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1451FDF630F44F799E6DBBEE453DCD12"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Messenger.resources, Version=2.2.4.0, Culture=tr-TR, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_1451FDF630F44F799E6DBBEE453DCD12"
+                    {
+                    "Name" = "8:Messenger.resources.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\Messenger\\bin\\Release\\tr-TR\\Messenger.resources.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_552843E7C4034B0E9FB90E67E1324E95"
+            "Condition" = "8:SystemLanguageID=1055"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1A18148EFD3148E5BF5F14B0EABF6FF3"
@@ -492,7 +535,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Messenger.resources, Version=2.2.0.0, Culture=ru-RU, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Messenger.resources, Version=2.2.4.0, Culture=ru-RU, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_C24FB72B78A4494AB60911D6FE5F7BC3"
@@ -605,7 +648,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Messenger.resources, Version=2.2.0.0, Culture=de-DE, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Messenger.resources, Version=2.2.4.0, Culture=de-DE, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_F85C91D3A4B04555941174AFF8A585F5"
@@ -670,6 +713,17 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_552843E7C4034B0E9FB90E67E1324E95"
+                    {
+                    "Name" = "8:tr-TR"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_25F62D9B2E45444797505BD74966276C"
+                        "Folders"
+                        {
+                        }
+                    }
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_9708644268A64E579BB065D915C01C84"
                     {
                     "Name" = "8:de-DE"
