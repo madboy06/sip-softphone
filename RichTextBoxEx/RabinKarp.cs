@@ -13,10 +13,23 @@ namespace RichTextBoxEx
 		where T : class
 		where U : class
 	{
+		struct Substring
+		{
+			public Substring(string value, U data)
+			{
+				Value = value;
+				Data = data;
+			}
+
+			public string Value;
+			public U Data;
+		}
+
 		private const int size = 4;
-		private Dictionary<uint, U> substrings = new Dictionary<uint, U>();
-		private T[] starts = new T[size];
-		private T[] ends = new T[size];
+		private readonly Dictionary<uint, Substring> substrings = new Dictionary<uint, Substring>();
+		private readonly T[] starts = new T[size];
+		private readonly T[] ends = new T[size];
+		private readonly char[] simbols = new char[size];
 		private int pointer = 0;
 		private uint key;
 
@@ -39,17 +52,19 @@ namespace RichTextBoxEx
 		public void Add(string subsctring, U data)
 		{
 			if (subsctring.Length >= 2 && subsctring.Length <= size)
-				substrings.Add(GetKey(subsctring), data);
+				substrings.Add(GetKey(subsctring), new Substring(subsctring, data));
 		}
 
-		public U Get(string subsctring)
+		public U Get(string pattern)
 		{
-			U data = null;
+			if (pattern.Length >= 2 && pattern.Length <= size)
+			{
+				Substring substring;
+				if (substrings.TryGetValue(GetKey(pattern), out substring))
+					return substring.Data;
+			}
 
-			if (subsctring.Length >= 2 && subsctring.Length <= size)
-				substrings.TryGetValue(GetKey(subsctring), out data);
-
-			return data;
+			return null;
 		}
 
 		public void Reset()
@@ -70,6 +85,7 @@ namespace RichTextBoxEx
 
 			starts[pointer] = simbolStart;
 			ends[pointer] = simbolEnd;
+			simbols[pointer] = simbol;
 
 			pointer = (pointer + 1) % size;
 
@@ -78,10 +94,12 @@ namespace RichTextBoxEx
 
 			for (int i = 0; i < 3; i++)
 			{
-				if (substrings.TryGetValue(key & (0xffffffff << i * 8), out data))
+				Substring substring;
+				if (substrings.TryGetValue(key & (0xffffffff << i * 8), out substring) && Compare(substring.Value))
 				{
 					key &= ~(0xffffffff << i * 8);
 
+					data = substring.Data;
 					start = starts[pointer % size];
 					end = ends[(pointer + size - i - 1) % size];
 
@@ -90,6 +108,15 @@ namespace RichTextBoxEx
 			}
 
 			return data != null;
+		}
+
+		private bool Compare(string substring)
+		{
+			for (int i = 0; i < Math.Min(size, substring.Length); i++)
+				if (simbols[(pointer + i) % size] != substring[i])
+					return false;
+
+			return true;
 		}
 
 		public bool Step(out U data, out T start, out T end)

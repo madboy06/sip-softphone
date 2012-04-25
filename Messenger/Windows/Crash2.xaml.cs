@@ -66,6 +66,8 @@ namespace Messenger.Windows
 				webClient.UploadFileCompleted += WebClient_UploadFileCompleted;
 				webClient.UploadProgressChanged += WebClient_UploadProgressChanged;
 				webClient.Credentials = credentialCache.GetCredential(uploadUri, @"Basic");
+				webClient.QueryString.Add("app", "MSG");
+				webClient.QueryString.Add("ver", AssemblyInfo.AssemblyVersion);
 			}
 		}
 

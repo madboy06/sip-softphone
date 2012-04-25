@@ -154,12 +154,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1451FDF630F44F799E6DBBEE453DCD12"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_F85C91D3A4B04555941174AFF8A585F5"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -167,6 +161,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_C24FB72B78A4494AB60911D6FE5F7BC3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1451FDF630F44F799E6DBBEE453DCD12"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -371,7 +371,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Messenger.resources, Version=2.2.4.0, Culture=tr-TR, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Messenger.resources, Version=2.2.5.0, Culture=tr-TR, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_1451FDF630F44F799E6DBBEE453DCD12"
@@ -535,7 +535,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Messenger.resources, Version=2.2.4.0, Culture=ru-RU, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Messenger.resources, Version=2.2.5.0, Culture=ru-RU, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_C24FB72B78A4494AB60911D6FE5F7BC3"
@@ -648,7 +648,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Messenger.resources, Version=2.2.4.0, Culture=de-DE, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Messenger.resources, Version=2.2.5.0, Culture=de-DE, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_F85C91D3A4B04555941174AFF8A585F5"
@@ -775,14 +775,14 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:OfficeSIP Messenger"
-        "ProductCode" = "8:{500A7EF0-FFAB-41AD-AEF3-3550045CB893}"
-        "PackageCode" = "8:{BF799016-9149-46C9-908F-DD72576F12B1}"
+        "ProductCode" = "8:{626E7BB0-DB09-4415-A68C-D21DBC7AAA8B}"
+        "PackageCode" = "8:{7E885E29-EE27-4BBB-87F5-4B84D3A776AE}"
         "UpgradeCode" = "8:{B56F51D7-76C4-4461-B5E1-2AD8FED4B18B}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:2.1.0"
+        "ProductVersion" = "8:2.2.5"
         "Manufacturer" = "8:OfficeSIP Communications"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://www.officesip.com"

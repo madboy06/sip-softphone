@@ -12,10 +12,10 @@ namespace Messenger
         public const string AssemblyTitle = "OfficeSIP Messenger";
         public const string AssemblyCompany = "OfficeSIP Communications";
         public const string AssemblyProduct = "OfficeSIP Messenger";
-        public const string AssemblyCopyright = "Copyright © 2008-2011 OfficeSIP Communications";
+        public const string AssemblyCopyright = "Copyright © 2008-2012 OfficeSIP Communications";
         public const string AssemblyTrademark = "OfficeSIP";
-        public const string AssemblyVersion = "2.2.4";
-        public const string AssemblyFileVersion = "2.2.4";
+        public const string AssemblyVersion = "2.2.5";
+        public const string AssemblyFileVersion = "2.2.5";
 
         public const string Homepage = "http://www.officesip.com";
 		public const string Feedback = "http://www.officesip.com/feedback.html";

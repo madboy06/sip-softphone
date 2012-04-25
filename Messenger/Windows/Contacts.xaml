@@ -101,7 +101,7 @@
             <MenuItem x:Uid="mm4" Header="Help">
                 <MenuItem Command="w:Commands.UccTracing"></MenuItem>
                 <Separator></Separator>
-                <MenuItem Command="w:Commands.Feedback"></MenuItem>
+                <!-- <MenuItem Command="w:Commands.Feedback"></MenuItem> -->
                 <MenuItem Command="w:Commands.Homepage"></MenuItem>
                 <MenuItem Command="w:Commands.About"></MenuItem>
             </MenuItem>
