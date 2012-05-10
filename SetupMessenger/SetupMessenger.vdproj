@@ -135,6 +135,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_E29A00EA4B2048FEB6AAC94999D9EBAB"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_F2064A06BE2D44288AA107B5B0686810"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -149,6 +155,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_09A7773915D14045A883F81631B67813"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_E29A00EA4B2048FEB6AAC94999D9EBAB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -597,7 +609,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:RichTextBoxEx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:RichTextBoxEx, Version=1.1.4499.2026, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_CA41F0250C916687AC3BAD3338B4EFD3"
@@ -622,6 +634,37 @@
             "Register" = "3:1"
             "Exclude" = "11:TRUE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E29A00EA4B2048FEB6AAC94999D9EBAB"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Messenger.resources, Version=2.2.5.0, Culture=pl-PL, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_E29A00EA4B2048FEB6AAC94999D9EBAB"
+                    {
+                    "Name" = "8:Messenger.resources.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\Messenger\\bin\\Release\\pl-PL\\Messenger.resources.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_D59656CAC016478FA1BB6C01AEC4ABDE"
+            "Condition" = "8:SystemLanguageID=1045"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F2064A06BE2D44288AA107B5B0686810"
@@ -746,6 +789,17 @@
                         {
                         }
                     }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_D59656CAC016478FA1BB6C01AEC4ABDE"
+                    {
+                    "Name" = "8:pl-PL"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_9F0C5010A1C34E10A9C57AF361E40CBF"
+                        "Folders"
+                        {
+                        }
+                    }
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_F44A1C486ED14A7FA4A76619FE61DEBE"
                     {
                     "Name" = "8:Sounds"
@@ -775,8 +829,8 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:OfficeSIP Messenger"
-        "ProductCode" = "8:{626E7BB0-DB09-4415-A68C-D21DBC7AAA8B}"
-        "PackageCode" = "8:{7E885E29-EE27-4BBB-87F5-4B84D3A776AE}"
+        "ProductCode" = "8:{D26C38E6-282E-4552-AA0D-B5CBC7453B54}"
+        "PackageCode" = "8:{D2B7561A-7FF5-45DE-8BBB-EED8DA3DC47B}"
         "UpgradeCode" = "8:{B56F51D7-76C4-4461-B5E1-2AD8FED4B18B}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"

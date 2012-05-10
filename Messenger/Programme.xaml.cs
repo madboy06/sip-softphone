@@ -32,7 +32,7 @@ namespace Messenger
 
 		public Programme()
 		{
-			//var cultureInfo = new System.Globalization.CultureInfo("tr-TR");
+			//var cultureInfo = new System.Globalization.CultureInfo("pl-PL");
 			//Thread.CurrentThread.CurrentCulture = cultureInfo;
 			//Thread.CurrentThread.CurrentUICulture = cultureInfo;
 #if DEBUG

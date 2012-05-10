@@ -409,6 +409,9 @@
     <None Include="Sounds\omessage.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <LocBamlCsv Include="Translation\pl-PL.csv">
+      <Culture>pl-PL</Culture>
+    </LocBamlCsv>
     <LocBamlCsv Include="Translation\ru-RU.csv">
       <Culture>ru-RU</Culture>
     </LocBamlCsv>
